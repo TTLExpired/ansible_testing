@@ -28,4 +28,6 @@ git diff <file>
 # Followed again with
 git commit -am "Message"
 
+# Don't forget to push
+git push
 
