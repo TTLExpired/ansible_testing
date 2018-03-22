@@ -1,0 +1,31 @@
+---
+- name: IOS Show commands
+  hosts: "all"
+  gather_facts: false
+  connection: local
+
+  vars:
+      cli:
+          host: "{{ ansible_host }}"
+          username: "{{ username }}"
+          password: "{{ password }}"
+
+  tasks:
+      - name: ios show commands - Checking for iosxr routers
+        ios_command:
+            commands:
+                - show version
+            wait_for: result[0] contains iosxr
+            provider: "{{ cli }}"
+
+      - name: Adding few lines to iosxr
+        iosxr_config:
+            lines:
+                - logging buffered 2097152
+                - commit
+            provider: "{{ cli }}"
+        register: output
+
+      - name: Show Output
+        debug:
+            var: output

@@ -1,0 +1,21 @@
+[all:vars]
+ansible_connection=local
+# ansible_ssh_user=mossesb
+# ansible_ssh_pass=password
+
+[core]
+xrv1  ansible_host=192.168.7.254
+# xrv2  ansible_host   =192.168.7.252
+xrv3  ansible_host=192.168.7.253
+xrv4  ansible_host=192.168.7.251
+
+[core:vars]
+username=mossesb
+password=password
+
+[nexus]
+NXOS ansible_host=192.168.7.250
+
+[nexus:vars]
+username=mossesb
+password=password
