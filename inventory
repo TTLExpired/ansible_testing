@@ -1,5 +1,6 @@
 [all:vars]
 ansible_connection=local
+# No need for ansible definitons. Added under another file
 # ansible_ssh_user=mossesb
 # ansible_ssh_pass=password
 
