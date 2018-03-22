@@ -1,0 +1,31 @@
+# First, if you want to use the cloud, do the following:
+git remote add origin https://github.com/USERNAME/repo.git
+git push -u origin master
+
+# Install GIT
+sudo apt-get install git
+
+# Create directory and initiate GIT
+git init
+
+# Establish Global Username/Password
+git config --global user.name 'Shaumik'
+git config --global user.email 'sd@gmail.com'
+git config --global color.ui 'auto'
+
+# Create new files Followed by
+git status
+
+# You can then add files
+git [commit|add] -Am "My first Commit"
+
+# If you want to remove a files
+git rm --cached [file_name]
+
+# If you make changes and want to check:
+git diff <file>
+
+# Followed again with
+git commit -am "Message"
+
+
