@@ -1,0 +1,23 @@
+---
+- name: IOS Show commands
+  hosts: "ios"
+  gather_facts: false
+  connection: local
+
+  vars:
+      cli:
+          host: "{{ ansible_host }}"
+          username: "{{ username }}"
+          password: "{{ password }}"
+
+  tasks:
+      - name: ios show hostnames
+        ios_command:
+            commands:
+                - show run | i hostname
+            provider: "{{ cli }}"
+        register: output
+
+      - name: Show Output
+        debug:
+            var: output

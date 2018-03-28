@@ -1,22 +1,20 @@
 [all:vars]
 ansible_connection=local
-# No need for ansible definitons. Added under another file
-# ansible_ssh_user=mossesb
-# ansible_ssh_pass=password
-
-[core]
-xrv1  ansible_host=192.168.7.254
-# xrv2  ansible_host   =192.168.7.252
-xrv3  ansible_host=192.168.7.253
-xrv4  ansible_host=192.168.7.251
-
-[core:vars]
 username=mossesb
 password=password
+
+[core]
+XRV1  ansible_host=192.168.7.254
+XRV3  ansible_host=192.168.7.253
+XRV2  ansible_host=192.168.7.252
+XRV4  ansible_host=192.168.7.251
 
 [nexus]
 NXOS ansible_host=192.168.7.250
 
-[nexus:vars]
-username=mossesb
-password=password
+[ios]
+VIOS5  ansible_host=192.168.7.249
+VIOS6  ansible_host=192.168.7.248
+VIOS8  ansible_host=192.168.7.247
+VIOS7  ansible_host=192.168.7.246
+
