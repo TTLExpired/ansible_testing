@@ -18,7 +18,13 @@ NXOS ansible_host=172.16.7.252
 [veos]
 vEOS9 ansible_host=10.0.7.254
 vEOS8 ansible_host=10.0.7.253
-vEOS  ansible_host=10.0.7.252
 
 [junos]
-Olive ansible_host=10.0.7.251
+Olive ansible_host=10.0.7.252
+
+[hp]
+HPSW1 ansible_host=10.45.200.3
+
+[hp:vars]
+username=admin
+password=password

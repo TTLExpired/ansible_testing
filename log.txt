@@ -1,0 +1,312 @@
+2018-04-01 00:17:54,459 p=13977 u=mossesb |  PLAY [IOS Show commands] ********************************************************************************************************************************
+2018-04-01 00:17:54,485 p=13977 u=mossesb |  TASK [ios show hostnames] *******************************************************************************************************************************
+2018-04-01 00:17:55,393 p=13988 u=mossesb |  creating new control socket for host 172.16.7.253:22 as user mossesb
+2018-04-01 00:17:55,394 p=13988 u=mossesb |  control socket path is /home/mossesb/.ansible/pc/01bb67cc6a
+2018-04-01 00:17:55,394 p=13988 u=mossesb |  current working directory is /home/mossesb/ansible/Networking/eveng_firstexample/Git-Repo/ansible_testing
+2018-04-01 00:17:55,394 p=13988 u=mossesb |  using connection plugin network_cli
+2018-04-01 00:17:55,421 p=13986 u=mossesb |  creating new control socket for host 172.16.7.254:22 as user mossesb
+2018-04-01 00:17:55,421 p=13986 u=mossesb |  control socket path is /home/mossesb/.ansible/pc/554ec45a19
+2018-04-01 00:17:55,421 p=13986 u=mossesb |  current working directory is /home/mossesb/ansible/Networking/eveng_firstexample/Git-Repo/ansible_testing
+2018-04-01 00:17:55,421 p=13986 u=mossesb |  using connection plugin network_cli
+2018-04-01 00:17:55,558 paramiko.transport starting thread (client mode): 0x40481198
+2018-04-01 00:17:55,559 paramiko.transport Local version/idstring: SSH-2.0-paramiko_2.4.1
+2018-04-01 00:17:55,561 paramiko.transport starting thread (client mode): 0xf9f51208
+2018-04-01 00:17:55,562 paramiko.transport Local version/idstring: SSH-2.0-paramiko_2.4.1
+2018-04-01 00:17:55,630 paramiko.transport Remote version/idstring: SSH-2.0-Cisco-1.25
+2018-04-01 00:17:55,630 paramiko.transport Connected (version 2.0, client Cisco-1.25)
+2018-04-01 00:17:55,637 paramiko.transport Remote version/idstring: SSH-2.0-Cisco-1.25
+2018-04-01 00:17:55,637 paramiko.transport Connected (version 2.0, client Cisco-1.25)
+2018-04-01 00:17:55,674 paramiko.transport kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2018-04-01 00:17:55,674 paramiko.transport Kex agreed: diffie-hellman-group-exchange-sha1
+2018-04-01 00:17:55,674 paramiko.transport HostKey agreed: ssh-rsa
+2018-04-01 00:17:55,674 paramiko.transport Cipher agreed: aes128-ctr
+2018-04-01 00:17:55,674 paramiko.transport MAC agreed: hmac-sha1
+2018-04-01 00:17:55,674 paramiko.transport Compression agreed: none
+2018-04-01 00:17:55,691 paramiko.transport kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2018-04-01 00:17:55,691 paramiko.transport Kex agreed: diffie-hellman-group-exchange-sha1
+2018-04-01 00:17:55,691 paramiko.transport HostKey agreed: ssh-rsa
+2018-04-01 00:17:55,691 paramiko.transport Cipher agreed: aes128-ctr
+2018-04-01 00:17:55,691 paramiko.transport MAC agreed: hmac-sha1
+2018-04-01 00:17:55,691 paramiko.transport Compression agreed: none
+2018-04-01 00:17:55,707 paramiko.transport Got server p (2048 bits)
+2018-04-01 00:17:55,944 paramiko.transport Got server p (2048 bits)
+2018-04-01 00:17:56,080 paramiko.transport kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2018-04-01 00:17:56,081 paramiko.transport Switch to new keys ...
+2018-04-01 00:17:56,121 paramiko.transport kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2018-04-01 00:17:56,122 paramiko.transport Switch to new keys ...
+2018-04-01 00:17:56,318 paramiko.transport userauth is OK
+2018-04-01 00:17:56,322 paramiko.transport Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2018-04-01 00:17:56,355 paramiko.transport userauth is OK
+2018-04-01 00:17:56,360 paramiko.transport Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2018-04-01 00:17:56,427 paramiko.transport Authentication (password) successful!
+2018-04-01 00:17:56,427 p=13986 u=mossesb |  ssh connection done, setting terminal
+2018-04-01 00:17:56,428 paramiko.transport [chan 0] Max packet in: 32768 bytes
+2018-04-01 00:17:56,436 paramiko.transport [chan 0] Max packet out: 4096 bytes
+2018-04-01 00:17:56,436 paramiko.transport Secsh channel 0 opened.
+2018-04-01 00:17:56,445 paramiko.transport [chan 0] Sesch channel 0 request ok
+2018-04-01 00:17:56,455 paramiko.transport [chan 0] Sesch channel 0 request ok
+2018-04-01 00:17:56,461 p=13986 u=mossesb |  loaded terminal plugin for network_os ios
+2018-04-01 00:17:56,466 p=13986 u=mossesb |  loaded cliconf plugin for network_os ios
+2018-04-01 00:17:56,469 p=13986 u=mossesb |  firing event: on_open_shell()
+2018-04-01 00:17:56,598 p=13986 u=mossesb |  ssh connection has completed successfully
+2018-04-01 00:17:56,599 p=13986 u=mossesb |  connection established to 172.16.7.254 in 0:00:01.177059
+2018-04-01 00:17:56,620 p=13986 u=mossesb |  local socket is set to listening
+2018-04-01 00:17:57,421 p=13986 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:17:57,421 p=13986 u=mossesb |  socket operation is CONTEXT
+2018-04-01 00:17:57,422 p=13986 u=mossesb |  updating play_context for connection
+2018-04-01 00:17:57,422 p=13986 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:17:57,422 p=13986 u=mossesb |  socket operation is RUN
+2018-04-01 00:17:57,422 p=13986 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:17:58,355 p=14005 u=mossesb |  re-using existing socket for mossesb@172.16.7.254:22
+2018-04-01 00:17:58,355 p=13986 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:17:58,356 p=13986 u=mossesb |  socket operation is CONTEXT
+2018-04-01 00:17:58,356 p=13986 u=mossesb |  updating play_context for connection
+2018-04-01 00:17:58,356 p=13986 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:17:58,357 p=13986 u=mossesb |  socket operation is EXEC
+2018-04-01 00:17:58,357 p=13986 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:17:58,411 paramiko.transport Authentication (password) failed.
+2018-04-01 00:17:58,413 p=13988 u=mossesb |  connecting to host 172.16.7.253 returned an error
+2018-04-01 00:17:58,413 p=13988 u=mossesb |  Authentication failed.
+2018-04-01 00:17:58,748 p=13986 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:17:58,748 p=13986 u=mossesb |  socket operation is EXEC
+2018-04-01 00:18:00,550 p=13986 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:18:00,573 p=13977 u=mossesb |  ok: [vIOS4]
+2018-04-01 00:18:05,498 p=13977 u=mossesb |  fatal: [vIOS5]: FAILED! => {"changed": false, "msg": "unable to open shell. Please see: https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell"}
+2018-04-01 00:18:05,503 p=13977 u=mossesb |  TASK [Show Output] **************************************************************************************************************************************
+2018-04-01 00:18:05,525 p=13977 u=mossesb |  ok: [vIOS4] => {
+    "output": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "hostname vIOS4"
+        ],
+        "stdout_lines": [
+            [
+                "hostname vIOS4"
+            ]
+        ]
+    }
+}
+2018-04-01 00:18:05,527 p=13977 u=mossesb |  PLAY RECAP **********************************************************************************************************************************************
+2018-04-01 00:18:05,527 p=13977 u=mossesb |  vIOS4                      : ok=2    changed=0    unreachable=0    failed=0   
+2018-04-01 00:18:05,527 p=13977 u=mossesb |  vIOS5                      : ok=0    changed=0    unreachable=0    failed=1   
+2018-04-01 00:18:30,551 p=13986 u=mossesb |  persistent connection idle timeout triggered, timeout value is 30 secs
+2018-04-01 00:18:30,551 p=13986 u=mossesb |  shutdown persistent connection requested
+2018-04-01 00:18:30,551 p=13986 u=mossesb |  closing local listener
+2018-04-01 00:18:30,551 p=13986 u=mossesb |  closing the connection
+2018-04-01 00:18:30,552 p=13986 u=mossesb |  closing ssh connection to device
+2018-04-01 00:18:30,552 p=13986 u=mossesb |  firing event: on_close_shell()
+2018-04-01 00:18:30,552 paramiko.transport [chan 0] EOF sent (0)
+2018-04-01 00:18:30,553 p=13986 u=mossesb |  cli session is now closed
+2018-04-01 00:18:30,553 p=13986 u=mossesb |  ssh connection has been closed successfully
+2018-04-01 00:18:30,553 p=13986 u=mossesb |  removing the local control socket
+2018-04-01 00:18:30,553 p=13986 u=mossesb |  shutdown complete
+2018-04-01 00:18:30,557 p=13986 u=mossesb |  Traceback (most recent call last):
+  File "/usr/local/bin/ansible-connection", line 132, in run
+    (s, addr) = self.socket.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+OSError: [Errno 9] Bad file descriptor
+
+2018-04-01 00:18:30,558 p=13986 u=mossesb |  shutdown persistent connection requested
+2018-04-01 00:18:30,558 p=13986 u=mossesb |  persistent connection is not active
+2018-04-01 00:18:30,558 p=13986 u=mossesb |  shutdown local socket, connection was active for 0:00:35.136508 secs
+2018-04-01 00:20:36,683 p=14074 u=mossesb |  PLAY [IOS Show commands] ********************************************************************************************************************************
+2018-04-01 00:20:36,697 p=14074 u=mossesb |  TASK [ios show hostnames] *******************************************************************************************************************************
+2018-04-01 00:20:37,584 p=14083 u=mossesb |  creating new control socket for host 172.16.7.254:22 as user mossesb
+2018-04-01 00:20:37,585 p=14083 u=mossesb |  control socket path is /home/mossesb/.ansible/pc/554ec45a19
+2018-04-01 00:20:37,585 p=14083 u=mossesb |  current working directory is /home/mossesb/ansible/Networking/eveng_firstexample/Git-Repo/ansible_testing
+2018-04-01 00:20:37,585 p=14083 u=mossesb |  using connection plugin network_cli
+2018-04-01 00:20:37,595 p=14084 u=mossesb |  creating new control socket for host 172.16.7.253:22 as user mossesb
+2018-04-01 00:20:37,595 p=14084 u=mossesb |  control socket path is /home/mossesb/.ansible/pc/01bb67cc6a
+2018-04-01 00:20:37,595 p=14084 u=mossesb |  current working directory is /home/mossesb/ansible/Networking/eveng_firstexample/Git-Repo/ansible_testing
+2018-04-01 00:20:37,595 p=14084 u=mossesb |  using connection plugin network_cli
+2018-04-01 00:20:37,668 paramiko.transport starting thread (client mode): 0x4cfdc2e8
+2018-04-01 00:20:37,668 paramiko.transport Local version/idstring: SSH-2.0-paramiko_2.4.1
+2018-04-01 00:20:37,679 paramiko.transport starting thread (client mode): 0x42a05208
+2018-04-01 00:20:37,679 paramiko.transport Local version/idstring: SSH-2.0-paramiko_2.4.1
+2018-04-01 00:20:37,692 paramiko.transport Remote version/idstring: SSH-2.0-Cisco-1.25
+2018-04-01 00:20:37,693 paramiko.transport Connected (version 2.0, client Cisco-1.25)
+2018-04-01 00:20:37,699 paramiko.transport Remote version/idstring: SSH-2.0-Cisco-1.25
+2018-04-01 00:20:37,699 paramiko.transport Connected (version 2.0, client Cisco-1.25)
+2018-04-01 00:20:37,710 paramiko.transport kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2018-04-01 00:20:37,710 paramiko.transport kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2018-04-01 00:20:37,710 paramiko.transport Kex agreed: diffie-hellman-group-exchange-sha1
+2018-04-01 00:20:37,710 paramiko.transport Kex agreed: diffie-hellman-group-exchange-sha1
+2018-04-01 00:20:37,711 paramiko.transport HostKey agreed: ssh-rsa
+2018-04-01 00:20:37,711 paramiko.transport HostKey agreed: ssh-rsa
+2018-04-01 00:20:37,711 paramiko.transport Cipher agreed: aes128-ctr
+2018-04-01 00:20:37,711 paramiko.transport Cipher agreed: aes128-ctr
+2018-04-01 00:20:37,711 paramiko.transport MAC agreed: hmac-sha1
+2018-04-01 00:20:37,711 paramiko.transport MAC agreed: hmac-sha1
+2018-04-01 00:20:37,711 paramiko.transport Compression agreed: none
+2018-04-01 00:20:37,711 paramiko.transport Compression agreed: none
+2018-04-01 00:20:37,721 paramiko.transport Got server p (2048 bits)
+2018-04-01 00:20:37,823 paramiko.transport kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2018-04-01 00:20:37,824 paramiko.transport Switch to new keys ...
+2018-04-01 00:20:46,913 paramiko.transport Got server p (2048 bits)
+2018-04-01 00:20:47,692 p=14084 u=mossesb |  connecting to host 172.16.7.253 returned an error
+2018-04-01 00:20:47,693 p=14084 u=mossesb |  No existing session
+2018-04-01 00:20:47,693 p=14074 u=mossesb |  fatal: [vIOS4]: FAILED! => {"changed": false, "msg": "unable to open shell. Please see: https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell"}
+2018-04-01 00:20:47,711 p=14074 u=mossesb |  fatal: [vIOS5]: FAILED! => {"changed": false, "msg": "unable to open shell. Please see: https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell"}
+2018-04-01 00:20:47,713 p=14074 u=mossesb |  PLAY RECAP **********************************************************************************************************************************************
+2018-04-01 00:20:47,715 p=14074 u=mossesb |  vIOS4                      : ok=0    changed=0    unreachable=0    failed=1   
+2018-04-01 00:20:47,715 p=14074 u=mossesb |  vIOS5                      : ok=0    changed=0    unreachable=0    failed=1   
+2018-04-01 00:20:47,802 paramiko.transport userauth is OK
+2018-04-01 00:20:48,658 paramiko.transport Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2018-04-01 00:20:48,936 paramiko.transport Authentication (password) successful!
+2018-04-01 00:20:48,937 p=14083 u=mossesb |  ssh connection done, setting terminal
+2018-04-01 00:20:48,937 paramiko.transport [chan 0] Max packet in: 32768 bytes
+2018-04-01 00:20:49,600 paramiko.transport [chan 0] Max packet out: 4096 bytes
+2018-04-01 00:20:49,600 paramiko.transport Secsh channel 0 opened.
+2018-04-01 00:20:49,812 paramiko.transport [chan 0] Sesch channel 0 request ok
+2018-04-01 00:20:49,944 paramiko.transport [chan 0] Sesch channel 0 request ok
+2018-04-01 00:20:49,948 p=14083 u=mossesb |  loaded terminal plugin for network_os ios
+2018-04-01 00:20:49,951 p=14083 u=mossesb |  loaded cliconf plugin for network_os ios
+2018-04-01 00:20:50,066 p=14083 u=mossesb |  firing event: on_open_shell()
+2018-04-01 00:20:50,800 p=14083 u=mossesb |  ssh connection has completed successfully
+2018-04-01 00:20:50,800 p=14083 u=mossesb |  connection established to 172.16.7.254 in 0:00:13.215426
+2018-04-01 00:20:50,800 p=14083 u=mossesb |  local socket is set to listening
+2018-04-01 00:20:55,240 p=14104 u=mossesb |  PLAY [IOS Show commands] ********************************************************************************************************************************
+2018-04-01 00:20:55,253 p=14104 u=mossesb |  TASK [ios show hostnames] *******************************************************************************************************************************
+2018-04-01 00:20:56,142 p=14113 u=mossesb |  re-using existing socket for mossesb@172.16.7.254:22
+2018-04-01 00:20:56,143 p=14083 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:20:56,143 p=14083 u=mossesb |  socket operation is CONTEXT
+2018-04-01 00:20:56,144 p=14083 u=mossesb |  updating play_context for connection
+2018-04-01 00:20:56,144 p=14083 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:56,145 p=14083 u=mossesb |  socket operation is RUN
+2018-04-01 00:20:56,145 p=14083 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:56,145 p=14114 u=mossesb |  creating new control socket for host 172.16.7.253:22 as user mossesb
+2018-04-01 00:20:56,146 p=14114 u=mossesb |  control socket path is /home/mossesb/.ansible/pc/01bb67cc6a
+2018-04-01 00:20:56,146 p=14114 u=mossesb |  current working directory is /home/mossesb/ansible/Networking/eveng_firstexample/Git-Repo/ansible_testing
+2018-04-01 00:20:56,146 p=14114 u=mossesb |  using connection plugin network_cli
+2018-04-01 00:20:56,209 paramiko.transport starting thread (client mode): 0x8292b780
+2018-04-01 00:20:56,210 paramiko.transport Local version/idstring: SSH-2.0-paramiko_2.4.1
+2018-04-01 00:20:56,240 paramiko.transport Remote version/idstring: SSH-2.0-Cisco-1.25
+2018-04-01 00:20:56,240 paramiko.transport Connected (version 2.0, client Cisco-1.25)
+2018-04-01 00:20:56,260 paramiko.transport kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2018-04-01 00:20:56,261 paramiko.transport Kex agreed: diffie-hellman-group-exchange-sha1
+2018-04-01 00:20:56,261 paramiko.transport HostKey agreed: ssh-rsa
+2018-04-01 00:20:56,261 paramiko.transport Cipher agreed: aes128-ctr
+2018-04-01 00:20:56,261 paramiko.transport MAC agreed: hmac-sha1
+2018-04-01 00:20:56,261 paramiko.transport Compression agreed: none
+2018-04-01 00:20:56,276 paramiko.transport Got server p (2048 bits)
+2018-04-01 00:20:56,385 paramiko.transport kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2018-04-01 00:20:56,386 paramiko.transport Switch to new keys ...
+2018-04-01 00:20:56,611 paramiko.transport userauth is OK
+2018-04-01 00:20:56,617 paramiko.transport Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2018-04-01 00:20:56,633 paramiko.transport Authentication (password) successful!
+2018-04-01 00:20:56,634 p=14114 u=mossesb |  ssh connection done, setting terminal
+2018-04-01 00:20:56,634 paramiko.transport [chan 0] Max packet in: 32768 bytes
+2018-04-01 00:20:56,649 paramiko.transport [chan 0] Max packet out: 4096 bytes
+2018-04-01 00:20:56,649 paramiko.transport Secsh channel 0 opened.
+2018-04-01 00:20:56,659 paramiko.transport [chan 0] Sesch channel 0 request ok
+2018-04-01 00:20:56,669 paramiko.transport [chan 0] Sesch channel 0 request ok
+2018-04-01 00:20:56,673 p=14114 u=mossesb |  loaded terminal plugin for network_os ios
+2018-04-01 00:20:56,676 p=14114 u=mossesb |  loaded cliconf plugin for network_os ios
+2018-04-01 00:20:56,677 p=14114 u=mossesb |  firing event: on_open_shell()
+2018-04-01 00:20:56,843 p=14114 u=mossesb |  ssh connection has completed successfully
+2018-04-01 00:20:56,843 p=14114 u=mossesb |  connection established to 172.16.7.253 in 0:00:00.696818
+2018-04-01 00:20:56,843 p=14114 u=mossesb |  local socket is set to listening
+2018-04-01 00:20:57,049 p=14126 u=mossesb |  re-using existing socket for mossesb@172.16.7.254:22
+2018-04-01 00:20:57,050 p=14083 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:20:57,050 p=14083 u=mossesb |  socket operation is CONTEXT
+2018-04-01 00:20:57,050 p=14083 u=mossesb |  updating play_context for connection
+2018-04-01 00:20:57,050 p=14083 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:57,050 p=14083 u=mossesb |  socket operation is EXEC
+2018-04-01 00:20:57,051 p=14083 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:57,142 p=14114 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:20:57,142 p=14114 u=mossesb |  socket operation is CONTEXT
+2018-04-01 00:20:57,143 p=14114 u=mossesb |  updating play_context for connection
+2018-04-01 00:20:57,143 p=14114 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:57,143 p=14114 u=mossesb |  socket operation is RUN
+2018-04-01 00:20:57,144 p=14114 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:57,383 p=14083 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:20:57,384 p=14083 u=mossesb |  socket operation is EXEC
+2018-04-01 00:20:58,031 p=14132 u=mossesb |  re-using existing socket for mossesb@172.16.7.253:22
+2018-04-01 00:20:58,031 p=14114 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:20:58,031 p=14114 u=mossesb |  socket operation is CONTEXT
+2018-04-01 00:20:58,031 p=14114 u=mossesb |  updating play_context for connection
+2018-04-01 00:20:58,031 p=14114 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:58,031 p=14114 u=mossesb |  socket operation is EXEC
+2018-04-01 00:20:58,032 p=14114 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:58,203 p=14114 u=mossesb |  incoming request accepted on persistent socket
+2018-04-01 00:20:58,203 p=14114 u=mossesb |  socket operation is EXEC
+2018-04-01 00:20:59,182 p=14083 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:59,206 p=14104 u=mossesb |  ok: [vIOS4]
+2018-04-01 00:20:59,873 p=14114 u=mossesb |  socket operation completed with rc 0
+2018-04-01 00:20:59,891 p=14104 u=mossesb |  ok: [vIOS5]
+2018-04-01 00:20:59,896 p=14104 u=mossesb |  TASK [Show Output] **************************************************************************************************************************************
+2018-04-01 00:20:59,919 p=14104 u=mossesb |  ok: [vIOS4] => {
+    "output": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "hostname vIOS4"
+        ],
+        "stdout_lines": [
+            [
+                "hostname vIOS4"
+            ]
+        ]
+    }
+}
+2018-04-01 00:20:59,923 p=14104 u=mossesb |  ok: [vIOS5] => {
+    "output": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "hostname vIOS5"
+        ],
+        "stdout_lines": [
+            [
+                "hostname vIOS5"
+            ]
+        ]
+    }
+}
+2018-04-01 00:20:59,926 p=14104 u=mossesb |  PLAY RECAP **********************************************************************************************************************************************
+2018-04-01 00:20:59,926 p=14104 u=mossesb |  vIOS4                      : ok=2    changed=0    unreachable=0    failed=0   
+2018-04-01 00:20:59,926 p=14104 u=mossesb |  vIOS5                      : ok=2    changed=0    unreachable=0    failed=0   
+2018-04-01 00:21:29,183 p=14083 u=mossesb |  persistent connection idle timeout triggered, timeout value is 30 secs
+2018-04-01 00:21:29,183 p=14083 u=mossesb |  shutdown persistent connection requested
+2018-04-01 00:21:29,183 p=14083 u=mossesb |  closing local listener
+2018-04-01 00:21:29,183 p=14083 u=mossesb |  closing the connection
+2018-04-01 00:21:29,184 p=14083 u=mossesb |  closing ssh connection to device
+2018-04-01 00:21:29,184 p=14083 u=mossesb |  firing event: on_close_shell()
+2018-04-01 00:21:29,184 paramiko.transport [chan 0] EOF sent (0)
+2018-04-01 00:21:29,185 p=14083 u=mossesb |  cli session is now closed
+2018-04-01 00:21:29,185 p=14083 u=mossesb |  ssh connection has been closed successfully
+2018-04-01 00:21:29,185 p=14083 u=mossesb |  removing the local control socket
+2018-04-01 00:21:29,186 p=14083 u=mossesb |  shutdown complete
+2018-04-01 00:21:29,187 p=14083 u=mossesb |  Traceback (most recent call last):
+  File "/usr/local/bin/ansible-connection", line 132, in run
+    (s, addr) = self.socket.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+OSError: [Errno 9] Bad file descriptor
+
+2018-04-01 00:21:29,187 p=14083 u=mossesb |  shutdown persistent connection requested
+2018-04-01 00:21:29,187 p=14083 u=mossesb |  persistent connection is not active
+2018-04-01 00:21:29,187 p=14083 u=mossesb |  shutdown local socket, connection was active for 0:00:51.602375 secs
+2018-04-01 00:21:29,874 p=14114 u=mossesb |  persistent connection idle timeout triggered, timeout value is 30 secs
+2018-04-01 00:21:29,874 p=14114 u=mossesb |  shutdown persistent connection requested
+2018-04-01 00:21:29,874 p=14114 u=mossesb |  closing local listener
+2018-04-01 00:21:29,874 p=14114 u=mossesb |  closing the connection
+2018-04-01 00:21:29,874 p=14114 u=mossesb |  closing ssh connection to device
+2018-04-01 00:21:29,874 p=14114 u=mossesb |  firing event: on_close_shell()
+2018-04-01 00:21:29,874 paramiko.transport [chan 0] EOF sent (0)
+2018-04-01 00:21:29,875 p=14114 u=mossesb |  cli session is now closed
+2018-04-01 00:21:29,875 p=14114 u=mossesb |  ssh connection has been closed successfully
+2018-04-01 00:21:29,875 p=14114 u=mossesb |  removing the local control socket
+2018-04-01 00:21:29,875 p=14114 u=mossesb |  shutdown complete
+2018-04-01 00:21:29,876 p=14114 u=mossesb |  Traceback (most recent call last):
+  File "/usr/local/bin/ansible-connection", line 132, in run
+    (s, addr) = self.socket.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+OSError: [Errno 9] Bad file descriptor
+
+2018-04-01 00:21:29,876 p=14114 u=mossesb |  shutdown persistent connection requested
+2018-04-01 00:21:29,876 p=14114 u=mossesb |  persistent connection is not active
+2018-04-01 00:21:29,876 p=14114 u=mossesb |  shutdown local socket, connection was active for 0:00:33.729923 secs

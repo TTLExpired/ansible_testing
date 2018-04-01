@@ -1,6 +1,6 @@
 ---
 - name: IOS Show commands
-  hosts: "ios"
+  hosts: "iosv"
   gather_facts: false
   connection: local
 
