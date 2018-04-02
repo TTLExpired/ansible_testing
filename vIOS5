@@ -1,0 +1,214 @@
+Building configuration...
+
+  
+Current configuration : 4806 bytes
+!
+! Last configuration change at 07:18:14 UTC Sun Apr 1 2018
+!
+version 15.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname vIOS5
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+ethernet lmi ce
+!
+!
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain name billmosses.com
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!         
+username ****** privilege 15 secret 5 $1$.9a8$z9cNbl4h5W0GnBZgOED/20
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 172.16.7.253 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description Link to vIOS4
+ ip address 172.16.0.2 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/1
+ description Link to xrv3
+ ip address 172.16.0.17 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ description Link to NXOS
+ ip address 172.16.0.9 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/4
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/5
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/6
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/7
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ router-id 172.16.7.253
+ redistribute bgp 172 subnets route-map BGP:OSPF:DISTRIBUTE
+ passive-interface GigabitEthernet0/1
+ network 172.16.0.0 0.0.0.3 area 0
+ network 172.16.0.8 0.0.0.3 area 10
+ network 172.16.0.16 0.0.0.3 area 0
+ network 172.16.7.253 0.0.0.0 area 0
+ default-information originate
+!
+router bgp 172
+ bgp router-id 172.16.7.253
+ bgp log-neighbor-changes
+ neighbor 172.16.0.18 remote-as 192
+ neighbor 172.16.0.18 next-hop-self
+ neighbor 172.16.0.18 soft-reconfiguration inbound
+ neighbor 172.16.0.18 route-map BGP:IN:ALLOW:AS192 in
+ neighbor 172.16.0.18 route-map BGP:OUT:ALLOW:ALL out
+ neighbor 172.16.7.254 remote-as 172
+ neighbor 172.16.7.254 update-source Loopback0
+ neighbor 172.16.7.254 soft-reconfiguration inbound
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip ssh version 2
+!
+!
+ip prefix-list AS172_RANGE seq 10 permit 172.16.0.0/21
+!
+ip prefix-list AS192_RANGE seq 10 permit 192.168.0.0/21
+ip prefix-list AS192_RANGE seq 20 permit 10.0.0.0/21
+ip prefix-list AS192_RANGE seq 30 permit 0.0.0.0/0
+!
+route-map BGP:IN:ALLOW:AS192 permit 10
+ match ip address prefix-list AS192_RANGE
+!
+route-map BGP:OUT:ALLOW:ALL permit 10
+ match ip address prefix-list AS172_RANGE
+!
+route-map BGP:OSPF:DISTRIBUTE deny 10
+ match ip address prefix-list AS172_RANGE
+!
+route-map BGP:OSPF:DISTRIBUTE permit 20
+!
+!
+!
+control-plane
+!
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+ transport input none
+!
+no scheduler allocate
+!
+end

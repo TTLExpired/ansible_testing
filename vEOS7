@@ -1,0 +1,79 @@
+! Command: show running-config
+! device: vEOS8 (vEOS, EOS-4.20.1F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname vEOS8
+!
+spanning-tree mode mstp
+!
+no aaa root
+!
+username ****** privilege 15 secret sha512 $6$TonVZS6jPYM7KgT.$KRk2c7eQ7AWdNniC7MG2JoDRxbl5xvW0KrcGYKeYxNR71jjumZW9mF416SxD/LoUyI2c8SAyM3wlRVyFf11C4.
+!
+interface Ethernet1
+   description Link to vEOS7
+   no switchport
+   ip address 10.0.0.2/30
+!
+interface Ethernet2
+   description Link to xrv3
+   no switchport
+   ip address 10.0.0.17/30
+!
+interface Ethernet3
+   description Link to Olive
+   no switchport
+   ip address 10.0.0.9/30
+!
+interface Loopback0
+   ip address 10.0.7.253/32
+!
+interface Management1
+!
+ip route 10.0.0.0/21 Null0 240
+!
+ip routing
+!
+ip prefix-list AS10_RANGE seq 10 permit 10.0.0.0/21
+ip prefix-list AS192_RANGE seq 10 permit 192.168.0.0/21
+ip prefix-list AS192_RANGE seq 20 permit 172.16.0.0/21
+ip prefix-list AS192_RANGE seq 30 permit 0.0.0.0/0
+!
+route-map BGP:IN:AS192:ALL permit 10
+   match ip address prefix-list AS192_RANGE
+   set local-preference 500
+!
+route-map BGP:OSPF:DISTRIB deny 10
+   match ip address prefix-list AS10_RANGE
+!
+route-map BGP:OSPF:DISTRIB permit 20
+!
+route-map BGP:OUT:ALLOW:ALL permit 10
+   match ip address prefix-list AS10_RANGE
+!
+router bgp 10
+   router-id 10.0.7.253
+   neighbor 10.0.0.18 remote-as 192
+   neighbor 10.0.0.18 next-hop-self
+   neighbor 10.0.0.18 route-map BGP:IN:AS192:ALL in
+   neighbor 10.0.0.18 route-map BGP:OUT:ALLOW:ALL out
+   neighbor 10.0.0.18 maximum-routes 12000
+   neighbor 10.0.7.254 remote-as 10
+   neighbor 10.0.7.254 update-source Loopback0
+   neighbor 10.0.7.254 maximum-routes 12000
+   network 10.0.0.0/21
+!
+router ospf 1
+   router-id 10.0.7.253
+   passive-interface Ethernet2
+   network 10.0.0.0/30 area 0.0.0.0
+   network 10.0.0.8/30 area 0.0.0.10
+   network 10.0.0.16/30 area 0.0.0.0
+   network 10.0.7.253/32 area 0.0.0.0
+   max-lsa 12000
+   default-information originate
+!
+end

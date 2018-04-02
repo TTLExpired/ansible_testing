@@ -1,0 +1,66 @@
+## Last commit: 2018-04-02 02:26:04 UTC by root
+version 12.1R1.9;
+system {
+    host-name Olive;
+    root-authentication {
+        encrypted-password "$1$ZqQUwU2o$4UsPBieJWDG1wtPdIFQyX."; ## SECRET-DATA
+    }
+    services {
+        ssh {
+            root-login allow;
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }                                   
+}
+interfaces {
+    em0 {
+        unit 0 {
+            description Link_To_vEOS7;
+            family inet {
+                address 10.0.0.10/30;
+            }
+        }
+    }
+    em1 {
+        unit 0 {
+            description Link_To_vEOS8;
+            family inet {
+                address 10.0.0.6/30;
+            }
+        }
+    }
+    em2 {
+        unit 0 {
+            description Local_Network;
+            family inet {
+                address 10.0.1.1/24;
+            }
+        }
+    }
+    lo0 {
+        unit 0 {
+            family inet {
+                address 10.0.7.252/32;
+            }
+        }
+    }
+}
+protocols {
+    ospf {
+        area 0.0.0.10 {
+            interface em0.0;
+            interface em1.0;
+        }
+    }
+}

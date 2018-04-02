@@ -1,0 +1,78 @@
+! Command: show running-config
+! device: vEOS7 (vEOS, EOS-4.20.1F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname vEOS7
+!
+spanning-tree mode mstp
+!
+no aaa root
+!
+username ****** privilege 15 secret sha512 $6$swnyEXeYNpTw2Rds$OH.8GzsPMh0mKPyamV5RdZkw0uZwqvU8R6zSj7Ow69rRGikzN3EtoPPRq8.5qZR06.B9/LN6RgQIIbWuP4FHH1
+!
+interface Ethernet1
+   description Link to vEOS8
+   no switchport
+   ip address 10.0.0.1/30
+!
+interface Ethernet2
+   description Link to xrv1
+   no switchport
+   ip address 10.0.0.13/30
+!
+interface Ethernet3
+   description Link to Olive
+   no switchport
+   ip address 10.0.0.5/30
+!
+interface Loopback0
+   ip address 10.0.7.254/32
+!
+interface Management1
+!
+ip route 10.0.0.0/21 Null0 240
+!
+ip routing
+!
+ip prefix-list AS10_RANGE seq 10 permit 10.0.0.0/21
+ip prefix-list AS192_RANGE seq 10 permit 192.168.0.0/21
+ip prefix-list AS192_RANGE seq 20 permit 172.16.0.0/21
+ip prefix-list AS192_RANGE seq 30 permit 0.0.0.0/0
+!
+route-map BGP:IN:AS192:ALL permit 10
+   match ip address prefix-list AS192_RANGE
+!
+route-map BGP:OSPF:DISTRIB deny 10
+   match ip address prefix-list AS10_RANGE
+!
+route-map BGP:OSPF:DISTRIB permit 20
+!
+route-map BGP:OUT:ALLOW:ALL permit 10
+   match ip address prefix-list AS10_RANGE
+!
+router bgp 10
+   router-id 10.0.7.254
+   neighbor 10.0.0.14 remote-as 192
+   neighbor 10.0.0.14 next-hop-self
+   neighbor 10.0.0.14 route-map BGP:IN:AS192:ALL in
+   neighbor 10.0.0.14 route-map BGP:OUT:ALLOW:ALL out
+   neighbor 10.0.0.14 maximum-routes 12000
+   neighbor 10.0.7.253 remote-as 10
+   neighbor 10.0.7.253 update-source Loopback0
+   neighbor 10.0.7.253 maximum-routes 12000
+   network 10.0.0.0/21
+!
+router ospf 1
+   router-id 10.0.7.254
+   passive-interface Ethernet2
+   network 10.0.0.0/30 area 0.0.0.0
+   network 10.0.0.4/30 area 0.0.0.10
+   network 10.0.0.12/30 area 0.0.0.0
+   network 10.0.7.254/32 area 0.0.0.0
+   max-lsa 12000
+   default-information originate
+!
+end
