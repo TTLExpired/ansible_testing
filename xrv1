@@ -128,4 +128,5 @@ router bgp 192
   !
  !
 !
+ssh server v2
 end
