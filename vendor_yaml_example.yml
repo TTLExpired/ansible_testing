@@ -1,0 +1,8 @@
+---
+Juniper: Also a Planet
+Cisco: 6500
+Brocade: True
+VMware:
+    - esxi
+    - vcenter
+    - nsx
