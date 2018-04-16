@@ -26,6 +26,10 @@ csr2 ansible_host=172.16.7.250
 [junos]
 Olive ansible_host=10.0.7.252
 
+[junos:vars]
+username=root
+password=Password
+
 [hp]
 HPSW1 ansible_host=10.45.200.3
 
