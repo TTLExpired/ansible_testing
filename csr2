@@ -1,0 +1,131 @@
+CSR2#sh run
+Building configuration...
+
+Current configuration : 2361 bytes
+!
+! Last configuration change at 07:04:55 UTC Mon Apr 16 2018
+!
+version 16.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname CSR2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+ip domain name billmosses.com
+!
+!
+subscriber templating
+! 
+multilink bundle-name authenticated
+!
+!
+license udi pid CSR1000V sn 9HS14F9TAQC
+diagnostic bootup level minimal
+spanning-tree extend system-id
+!
+netconf-yang cisco-odm actions OSPF
+netconf-yang cisco-odm actions IPRoute
+netconf-yang cisco-odm actions Diffserv
+netconf-yang cisco-odm actions BFDNeighbors
+netconf-yang cisco-odm actions BridgeDomain
+netconf-yang cisco-odm actions VirtualService
+netconf-yang cisco-odm actions EthernetCFMStats
+netconf-yang cisco-odm actions MPLSLDPNeighbors
+netconf-yang cisco-odm actions MPLSStaticBinding
+netconf-yang cisco-odm actions MPLSForwardingTable
+!
+restconf
+!
+username mossesb privilege 15 secret 5 $1$YAg9$mDRqxqZDifvatY/rt0Vtf1
+!
+redundancy
+!
+cdp run
+! 
+!
+interface Loopback0
+ ip address 172.16.7.250 255.255.255.255
+!
+interface GigabitEthernet1
+ description Link to CSR1
+ ip address 172.16.0.30 255.255.255.252
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ description Link to vIOS4
+ ip address 172.16.0.34 255.255.255.252
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ description Link to vIOS5
+ ip address 172.16.0.38 255.255.255.252
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router ospf 1
+ router-id 172.16.7.250
+ network 172.16.0.28 0.0.0.3 area 20
+ network 172.16.0.32 0.0.0.3 area 20
+ network 172.16.0.36 0.0.0.3 area 20
+ network 172.16.7.250 0.0.0.0 area 20
+!
+!
+virtual-service csr_mgmt
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+ip ssh version 2
+!
+!
+control-plane
+!         
+!
+line con 0
+ stopbits 1
+line vty 0
+ login
+line vty 1
+ login
+ length 0
+line vty 2 4
+ login
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!         
+!
+end
+
