@@ -76,4 +76,8 @@ router ospf 1
    max-lsa 12000
    default-information originate
 !
+management api http-commands
+   protocol http
+   no shutdown
+!
 end

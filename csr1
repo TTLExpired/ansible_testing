@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 1806 bytes
+Current configuration : 4019 bytes
 !
-! Last configuration change at 07:04:11 UTC Mon Apr 16 2018
+! Last configuration change at 07:47:27 UTC Tue Apr 17 2018
 !
 version 16.3
 service timestamps debug datetime msec
@@ -19,7 +19,25 @@ boot-end-marker
 !
 no aaa new-model
 !
+!
+!
+!
+!         
+!
+!
+!
+!
+
+
+
 ip domain name billmosses.com
+!
+!
+!
+!
+!
+!
+!
 !
 !
 !
@@ -30,10 +48,59 @@ subscriber templating
 multilink bundle-name authenticated
 !
 !
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3472759099
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3472759099
+ revocation-check none
+ rsakeypair TP-self-signed-3472759099
+!
+!
+crypto pki certificate chain TP-self-signed-3472759099
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343732 37353930 3939301E 170D3138 30343137 30373436 
+  32365A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34373237 
+  35393039 39308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100B137 AB296BCD DA723330 432FA537 892534B0 4645245F 9527ECA7 
+  265F9350 E289ADAF 36981D46 BA4A9B90 312048F4 8BF90411 47BFAF83 EAF39B1E 
+  4CC5A82B 83176CCA A160EBCC 21AF1DAC 115D39A1 592C0FD2 002A0DC2 E12EF61B 
+  590BF887 1EAD6443 07B2334C 32EF2EBD 39E8DE6E C382B3DB B943EA79 21C473FB 
+  40FCD94D 24784FD5 C2FD6F3A D694D6F6 78A5628C F59AC4CD 6F6B7B9A 6E7927B3 
+  714B300D 1110832F BFC8B581 8D0F5655 1D4DBF87 0DCC05F5 B2E2197F 93C221CE 
+  2C4C9B41 601A3956 0F451BB3 E4CE68AD 256A606F 5B022316 5DE29428 27282DCC 
+  4D838840 9AFE3210 87E5E261 63DD5E84 A71A480B B2D6BBC4 D79E868E 49F1FB1C 
+  40F4921A 8EC50203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14203945 728B8D8D D8987491 B7745078 61143AC6 
+  E1301D06 03551D0E 04160414 20394572 8B8D8DD8 987491B7 74507861 143AC6E1 
+  300D0609 2A864886 F70D0101 05050003 82010100 050B8181 32B5A5F1 2412C282 
+  C10F52DA 9D61CF9A 58EFBB85 527161F0 1B99DE28 00C986C9 94A157C7 B97C8064 
+  F96F8ACD F7EF3541 05EC31F7 03183496 8D6B637B 1DF87C76 275C3171 666B726D 
+  6759B845 F7D5DB8C 98C8DD30 AD83C96A 158D1DB8 C4997A60 326C9F8C E3CB3DCD 
+  A797F6EE 9AC9B8FD 1F9E459C 7CFAA19F FF529C9F AD4DB07F EA331238 54FEEA8A 
+  47BEC082 541F82ED 6B567E7F 2B351257 F613E10C E7343271 FEEF50F0 3D371E2A 
+  EC0DEB2E C6DFB2B0 A8EEF123 3B508F56 101A264E 11644DB4 4B6C8045 10F2FB99 
+  74C1B426 8085A19A A40EEF47 239B53EB 683F5CA6 1F2A3E70 1C72DC5A E59255F1 
+  7D661FC2 89C2FD09 977CFAC2 196B2E7C EB85301F
+  	quit
+
+
+!
+!
+!         
+!
+!
+!
+!
 license udi pid CSR1000V sn 9KYMAIEGCH5
 diagnostic bootup level minimal
 !
 spanning-tree extend system-id
+netconf-yang
 !
 restconf
 !
@@ -42,12 +109,35 @@ username mossesb privilege 15 secret 5 $1$M/ww$cl1idGTgc.lmvDhRpFH/Y0
 redundancy
 !
 !
+!
+!
+!
 cdp run
+!
+!         
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+! 
+! 
+! 
+! 
 !
 !
 interface Loopback0
  ip address 172.16.7.251 255.255.255.255
-!
+!         
 interface GigabitEthernet1
  description Link to vIOS4
  ip address 172.16.0.22 255.255.255.252
@@ -70,7 +160,7 @@ interface GigabitEthernet3
  negotiation auto
  no mop enabled
  no mop sysid
-!
+!         
 interface GigabitEthernet4
  description Link to CSR2
  ip address 172.16.0.29 255.255.255.252
@@ -90,11 +180,24 @@ router ospf 1
 virtual-service csr_mgmt
 !
 ip forward-protocol nd
-no ip http server
+ip http server
 no ip http secure-server
+!
+!         
+!
+!
+!
 !
 !
 control-plane
+!
+ !
+ !
+ !
+ !
+!
+!
+!
 !
 !
 line con 0
@@ -103,12 +206,13 @@ line vty 0
  login
 line vty 1
  login
- length 0
+ length 0 
 line vty 2 4
  login
 !
 !
+!
+!
+!
+!
 end
-
-CSR1#     
-
