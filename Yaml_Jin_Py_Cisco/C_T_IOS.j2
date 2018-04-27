@@ -172,10 +172,24 @@ interface range {{ iface.ChassisID }}/{{ iface.SlotID }}/{{ iface.StartPort }}-{
 {% if iface.access %}
  switchport mode access
  switchport access vlan {{ iface.vlan }}
+ authentication event fail action next-method 
+ authentication event server dead action authorize vlan {{ iface.vlan }} 
+ authentication event server alive action reinitialize 
+ authentication host-mode multi-auth 
+ authentication open 
+ authentication order dot1x mab 
+ authentication priority dot1x mab 
+ authentication port-control auto 
+ authentication timer reauthenticate server 
+ authentication violation restrict 
+ mab 
+ snmp trap mac-notification change added 
+ dot1x pae authenticator 
+ dot1x timeout tx-period 60 
+ spanning-tree portfast 
+ spanning-tree bpduguard enable 
   {% if iface.voip %}
-   switchport
-   switchport access voice 30
-   no shut
+   switchport voice vlan 30
   {% endif %}
   {% if iface.snooping %}
    ip igmp version 2
