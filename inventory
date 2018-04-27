@@ -23,6 +23,14 @@ vEOS8 ansible_host=10.0.7.253
 csr1 ansible_host=172.16.7.251
 csr2 ansible_host=172.16.7.250
 
+[wlc]
+vWLC1 ansible_host=172.16.2.4
+vWLC2 ansible_host=10.0.2.4
+
+[wlc:vars]
+username=mossesb
+password=Pas5w0rd
+
 [junos]
 Olive ansible_host=10.0.7.252
 
@@ -31,7 +39,7 @@ username=root
 password=Password
 
 [hp]
-HPSW1 ansible_host=10.45.200.3
+HPSW1 ansible_host=172.16.8.4
 
 [hp:vars]
 username=admin

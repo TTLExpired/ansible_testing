@@ -1,0 +1,172 @@
+---
+##################################################################
+#                                                               ##
+#                   Global Configuration                        ##
+#                                                               ##
+##################################################################
+
+# !!!! Change HostName !!!!
+hostname: test1
+
+end_block: exit
+
+# !!! Update Users !!!!
+users:
+    1:
+        login: LastResort
+        secret_type: 0
+        secret: RaY13M07
+        priv: 15
+    2:
+        login: mossesb
+        secret_type: 0
+        secret: password
+        priv: 15
+
+# Global System Settings
+system:
+    tz: ADST +10
+    recur: 'ADST recurring 1 Sun Oct 2:00 1 Sun Apr 3:00'
+    fqdn: sesiahs.health.nsw.gov.au
+    name_server:
+        - 10.40.0.2
+        - 10.39.11.2
+    hosts:
+        - ntp1.sesiahs.health.nsw.gov.au
+        - ntp2.sesiahs.health.nsw.gov.au
+        - ranise02.sesahs.nsw.gov.au
+        - wolise02.lan.sesahs.nsw.gov.au
+    ntp:
+        - ntp1.sesiahs.health.nsw.gov.au
+        - ntp3.sesiahs.health.nsw.gov.au
+    radius_group: SESI-ISE
+
+# Radius Configuration
+radius:
+    1:
+        server: ranise02.sesahs.nsw.gov.au
+        address: 10.40.192.163
+        auth: 1812
+        acc: 1813
+        key: password
+    2:
+        server: wolise02.lan.sesahs.nsw.gov.au
+        address: 10.39.100.10
+        auth: 1812
+        acc: 1813
+        key: password
+
+# SNMP Configuration
+snmp:
+    ro: ropublic
+    rw: rwpublic
+    location: test location
+    host: 10.36.10.195
+
+# Spanning Tree _ MST
+spanningtree:
+    mst_process: STP_PROC
+    mst_revision: 10
+    mst_instance1: 1 - 4096
+
+##########################################################################
+#                                                                       ##
+#               End of Global Configuration. The next section           ##
+#                           IS IP sepcific                              ##
+#                                                                       ##
+##########################################################################
+vlans:
+    10: test1
+    20: test2
+    30: test3
+
+intvlans:
+    10:
+        description: Local_Wired
+        ip: 10.10.10.1
+        mask: 255.255.255.0
+        boot1: 10.45.206.102
+        boot2: 10.45.207.102
+        multicast: true
+        enable: true
+    20:
+        description: WAP_Wired
+        ip: 10.10.20.1
+        mask: 255.255.255.0
+        boot1: 20.20.1.102
+        boot2: 20.20.3.102
+        multicast: true
+        enable: false
+    30:
+        description: VOIP_Wired
+        ip: 10.10.30.1
+        mask: 255.255.255.0
+        boot1: 10.45.206.102
+        boot2: 10.45.207.102
+        multicast: false
+        enable: true
+
+# Routed Interfaces
+rtvlans:
+    1:
+        network: 10.255.255.0
+        lo0: 10.255.255.1
+        mask: 255.255.255.0
+        wild_mask: 0.0.0.24
+        ospf_enable: true
+        area: 0
+    2:
+        description: ptp1
+        network: 10.60.0.0
+        ptp: 10.60.0.1
+        mask: 255.255.255.252
+        wild_mask: 0.0.0.3
+        multicast: true
+        ospf_enable: true
+        area: 10
+        int: t1/1/4
+    3:
+        description: ptp2
+        network: 10.60.0.4
+        ptp: 10.60.0.5
+        mask: 255.255.255.252
+        wild_mask: 0.0.0.3
+        multicast: true
+        ospf_enable: true
+        area: 0
+        int: t4/1/4
+
+# OSPF
+ospf:
+    ProcessId: 1
+
+# Interface Configuration
+int:
+    1:
+        ChassisID: 1
+        SlotID: 1
+        StartPort: 1
+        EndPort: 48
+        access: true
+        trunk: false
+        vlan: 10
+        voip: true
+        snooping: true
+    2:
+        ChassisID: 2
+        SlotID: 1
+        StartPort: 1
+        EndPort: 48
+        access: true
+        trunk: false
+        vlan: 20
+        voip: false
+        snooping: false
+    3:
+        ChassisID: 3
+        SlotID: 1
+        StartPort: 1
+        EndPort: 24
+        access: false
+        trunk: true
+        snooping: false

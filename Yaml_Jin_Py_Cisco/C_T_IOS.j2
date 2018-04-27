@@ -1,0 +1,191 @@
+# A work in progress, Jinja Template for IOS devices
+service password-encryption
+service timestamps debug datetime localtime
+service timestamps log datetime localtime
+service compress-config
+service seq
+
+hostname {{ hostname }}
+snmp-server chassis {{ hostname }}
+!
+logging buffered 10000
+logging history 256
+!
+!
+{% for id, user in users.items() -%}
+ username {{ user.login }} priviledge {{ user.priv }} secret {{ user.secret_type }} {{ user.secret }}
+{% endfor %}
+!
+!
+clock timezone {{ system.tz }}
+clock summer-time {{ system.recur }}
+!
+!
+ip domain-name {{ system.fqdn }}
+{% for address in system.name_server %}
+ ip name server {{ address }}
+{% endfor %}
+!
+!
+{% for host in system.hosts %}
+ ip host {{ host }}
+{% endfor %}
+!
+!
+{% for host in system.ntp %}
+ ntp server {{ host }}
+{% endfor %}
+!
+!
+aaa new-mod
+{% for id, radius in radius.items() %}
+ radius server {{ radius.server }}
+ address ipv4 {{ radius.address }} auth_port {{ radius.auth }} acc_port {{ radius.acc }}
+ key {{ radius.key }}
+{% endfor %}
+{{ end_block }}
+!
+!
+aaa group server radius {{ system.radius_group }}
+{% for id, radius in radius.items() %}
+ radius server {{ radius.server }}
+{% endfor %}
+{{ end_block }}
+!
+!
+aaa server radius dynamic-auth
+{% for id, radius in radius.items() %}
+ client {{ radius.server }} key {{ radius.key }}
+{% endfor %}
+auth-type any
+{{ end_block }}
+!
+!
+!
+aaa authentication login default group {{ system.radius_group }} local 
+aaa authentication dot1x default group {{ system.radius_group }} 
+aaa authorization exec default group {{ system.radius_group }} local 
+aaa authorization network default group {{ system.radius_group }} 
+aaa authorization auth-proxy default group {{ system.radius_group }} 
+aaa accounting update periodic 15 
+aaa accounting auth-proxy default start-stop group {{ system.radius_group }} 
+aaa accounting dot1x default start-stop group {{ system.radius_group }} 
+aaa accounting exec default start-stop group {{ system.radius_group }} 
+!
+!
+radius-server attribute 6 on-for-login-auth 
+radius-server attribute 6 support-multiple 
+radius-server attribute 8 include-in-access-req 
+radius-server attribute 25 access-request include 
+radius-server attribute 31 mac format ietf 
+radius-server attribute 31 send nas-port-detail mac-only 
+radius-server dead-criteria time 30 tries 3 
+radius-server deadtime 15 
+!
+!
+mac address-table notification change 
+mac address-table notification mac-move 
+device-sensor accounting 
+device-sensor notify all-changes 
+!
+!
+lldp run 
+dot1x system-auth-control 
+dot1x critical eapol 
+! 
+!
+ip forward-protocol nd 
+ip http server 
+ip http authentication local 
+ip http secure-server
+!
+!
+snmp-server community {{ snmp.ro }} ro
+snmp-server community {{ snmp.rw }} rw
+snmp-server location {{ snmp.location }}
+snmp-server host {{snmp.host }} {{ snmp.ro }}
+!
+!
+spanning-tree mode mst
+spanning-tree mst config
+name {{ spanningtree.mst_process }}
+revision {{ spanningtree.mst_revision }}
+instance {{ spanningtree.mst_instance1 }}
+{{ end_block }}
+!
+!
+{% for id, name in vlans.items() %}
+ {% if id is number %}
+  vlan {{ id }}
+  name {{ name }}
+  state active
+ {% endif %}
+{% endfor %}
+!
+!
+{% for id, vlan in intvlans.items() %}
+ interface {{ id }}
+ description {{ vlan.description }}
+ ip address {{ vlan.ip }} {{ vlan.mask }}
+ ip help-address {{ boot1 }}
+ ip help-address {{ boot2 }}
+ {% if vlan.multicast %}
+  ip pim sparse-mode
+ {% endif %}
+ {% if vlan.enable %}
+  no shut
+ {% else %}
+  shut
+ {% endif %}
+{% endfor %}
+!
+!
+! 
+router ospf {{ ospf.ProcessId }}
+{% for id, vlan in rtvlans.items() %}
+  {% if vlan.lo0 %}
+   router-id {{ vlan.lo0 }} 
+   network {{ vlan.lo0 }} 0.0.0.0 area {{ vlan.area }}
+  {% else %}
+   network {{ vlan.network }} {{ vlan.wild_mask }} area {{ vlan.area }}
+  {% endif %} 
+{% endfor %}
+!
+!
+{% for id, vlan in rtvlans.items() %}
+ {% if vlan.lo0 %}
+  int lo0
+  ip address {{ vlan.lo0 }} {{ vlan.mask }}
+ {% else %}
+  int {{ vlan.int }}
+   description {{ vlan.description }}
+   ip address {{ vlan.ptp }} mask {{ vlan.mask }}
+   {% if vlan.multicast %}
+    ip pim sprase-mode
+   {% endif %}
+  {% endif %}
+{% endfor %}
+!
+!
+{% for id, iface in int.items() %}
+interface range {{ iface.ChassisID }}/{{ iface.SlotID }}/{{ iface.StartPort }}-{{ iface.EndPort }}
+{% if iface.access %}
+ switchport mode access
+ switchport access vlan {{ iface.vlan }}
+  {% if iface.voip %}
+   switchport
+   switchport access voice 30
+   no shut
+  {% endif %}
+  {% if iface.snooping %}
+   ip igmp version 2
+  {% endif %}
+{% endif %}
+{% if iface.trunk %}
+ description Trunk Port
+ switchport
+ switchort mode Trunk
+ no shut
+{% endif %}
+{% endfor %}
+
