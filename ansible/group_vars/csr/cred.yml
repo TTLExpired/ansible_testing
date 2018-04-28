@@ -1,0 +1,8 @@
+---
+
+# Credentials per group
+users:
+  1:
+    login: mossesb
+    password: password
+    priv: 15

@@ -351,3 +351,34 @@ The offending line appears to be:
 2018-04-28 13:41:48,102 p=20421 u=mossesb |  xrv1                       : ok=1    changed=0    unreachable=0    failed=0   
 2018-04-28 13:41:48,102 p=20421 u=mossesb |  xrv2                       : ok=1    changed=0    unreachable=0    failed=0   
 2018-04-28 13:41:48,102 p=20421 u=mossesb |  xrv3                       : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:42,469 p=21247 u=mossesb |  PLAY [Play1 - Generating SNMP] ****************************************************************************************************************************************************************
+2018-04-28 13:51:42,482 p=21247 u=mossesb |  TASK [Generating SNMP configs] ****************************************************************************************************************************************************************
+2018-04-28 13:51:42,944 p=21247 u=mossesb |  ok: [xrv2]
+2018-04-28 13:51:42,952 p=21247 u=mossesb |  ok: [xrv3]
+2018-04-28 13:51:42,959 p=21247 u=mossesb |  ok: [vEOS9]
+2018-04-28 13:51:42,968 p=21247 u=mossesb |  ok: [Olive]
+2018-04-28 13:51:42,979 p=21247 u=mossesb |  ok: [xrv1]
+2018-04-28 13:51:43,236 p=21247 u=mossesb |  ok: [vEOS8]
+2018-04-28 13:51:43,257 p=21247 u=mossesb |  ok: [csr2]
+2018-04-28 13:51:43,267 p=21247 u=mossesb |  ok: [csr1]
+2018-04-28 13:51:43,280 p=21247 u=mossesb |  ok: [HPSW1]
+2018-04-28 13:51:43,351 p=21247 u=mossesb |  ok: [vIOS4]
+2018-04-28 13:51:43,522 p=21247 u=mossesb |  ok: [vWLC1]
+2018-04-28 13:51:43,540 p=21247 u=mossesb |  ok: [vIOS5]
+2018-04-28 13:51:43,547 p=21247 u=mossesb |  ok: [vWLC2]
+2018-04-28 13:51:43,575 p=21247 u=mossesb |  ok: [NXOS]
+2018-04-28 13:51:43,579 p=21247 u=mossesb |  PLAY RECAP ************************************************************************************************************************************************************************************
+2018-04-28 13:51:43,579 p=21247 u=mossesb |  HPSW1                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,579 p=21247 u=mossesb |  NXOS                       : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,579 p=21247 u=mossesb |  Olive                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,579 p=21247 u=mossesb |  csr1                       : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,579 p=21247 u=mossesb |  csr2                       : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  vEOS8                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  vEOS9                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  vIOS4                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  vIOS5                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  vWLC1                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  vWLC2                      : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  xrv1                       : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  xrv2                       : ok=1    changed=0    unreachable=0    failed=0   
+2018-04-28 13:51:43,580 p=21247 u=mossesb |  xrv3                       : ok=1    changed=0    unreachable=0    failed=0   

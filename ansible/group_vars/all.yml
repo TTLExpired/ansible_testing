@@ -1,7 +1,6 @@
 ---
 # Global Variables. Will be overwritten in each group if needed
-all:
-  vars:
-    ansible_connection: local
+base_provider:
     username: mossesb
     password: password
+    host: "{{ inventory_hostname }}"
