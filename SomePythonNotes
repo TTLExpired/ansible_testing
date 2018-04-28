@@ -1,0 +1,168 @@
+Dictionaries:
+    >>> datacenter1 = {'spines': ['r1', 'r2', 'r3', 'r4']}
+    >>> datacenter1['leafs'] = ['l1', 'l2', 'l3', 'l4']
+    >>> datacenter1
+    {'leafs': ['l1', 'l2', 'l3', 'l4'], 'spines': ['r1',
+    'r2', 'r3', 'r4']}
+    >>> datacenter1['spines']
+    ['r1', 'r2', 'r3', 'r4']
+    >>> datacenter1['leafs']
+    ['l1', 'l2', 'l3', 'l4']
+    
+Sets (items never repeated)
+    >>> a = "hello"
+    >>> set(a)
+    {'h', 'l', 'o', 'e'}
+    >>> b = set([1, 1, 2, 2, 3, 3, 4, 4])
+    >>> b
+    {1, 2, 3, 4}
+    >>> b.add(5)
+    >>> b
+    {1, 2, 3, 4, 5}
+    >>> b.update(['a', 'a', 'b', 'b'])
+    >>> b
+    {1, 2, 3, 4, 5, 'b', 'a'}
+    >>> a = set([1, 2, 3, 4, 5])
+    >>> b = set([4, 5, 6, 7, 8])
+    >>> a.intersection(b)
+    {4, 5}
+    >>> a.union(b)
+    {1, 2, 3, 4, 5, 6, 7, 8}
+    >>> 1 *
+    {1, 
+
+Simple If Statement
+    >>> a = 10
+    >>> if a > 1:
+    ...   print("a is larger than 1")
+    ... elif a < 1:
+    ...   print("a is smaller than 1")
+    ... else:
+    ...   print("a is equal to 1")
+    ...
+    a is larger than 1
+    
+
+For Statements
+    >>> a = [100, 200, 300, 400]
+    >>> for number in a:
+    ...   print(number)
+    
+While Statements
+    >>> a = 10
+    >>> b = 1
+    >>> while b < a:
+    ...   print(b)
+    ...   b += 1
+    
+Functions
+    >>> def subtract(a, b):
+    ...   c = a - b
+    ...   return c
+    ...
+    >>> result = subtract(10, 5)
+    >>> result
+    >>> 5
+    
+Classes (can be called manytimes. More to come)
+
+...     def __init__(self, name, interface_number, vendor):
+...             self.name = name
+...             self.interface_number = interface_number
+...             self.vendor = vendor
+>>> r1 = router("POW1", 32, "Cisco")
+>>> r1.name
+'POW1'
+>>> r1.interface_number
+32
+>>> r1.vendor
+'Cisco'
+>>>
+
+If you import a function, say the subtract you created above, you simply call it just like any other function:
+>>> import substract
+>>> result = subtract.subtract(10, 5)
+>>> result
+>>> 5
+
+Note: Had module not found error with python3 and pexpect. Ran the following and its fixed:
+pip install -I pexpect
+
+++++++++++++++++++ Some Ansible Examples +++++++++++++++++++++++++++++++
+
+# Part of Inventory File
+[nexus_by_name]
+switch1 ansible_host=192.168.199.148
+switch2 ansible_host=192.168.199.149
+[nexus_by_name:vars]
+username=cisco
+password=cisco
+
+# The playbook.
+---
+- name: Configure SNMP Contact
+hosts: "nexus_by_name"
+gather_facts: false
+connection: local
+vars:
+cli:
+host: "{{ ansible_host }}"
+username: "{{ username }}"
+password: "{{ password }}"
+transport: cli
+tasks:
+- name: configure snmp contact
+nxos_snmp_contact:
+contact: TEST_1
+state: present
+provider: "{{ cli }}"
+register: output
+- name: show output
+debug:
+var: output
+
+++++++++++++++++++++ Advanced Ansible Topics ++++++++++++++++++++++++++++++++
+When Clause:
+The When Clause is matching a certain value and acting upon it:
+ register output
+ when '"N-KOG" in "{{ output.stdout }}"'
+ debug:
+   msg: '{{ output}}'
+   
+A simple example saying if you find N-KOG in our registered output. Print output value.
+
+Here's a playbook that searches for iosxr routers, and if found, increases the buffer size and saves the config.
+It'll then print what it gets in return - Note: I still beleive its broken. As I don't see how the condition is 
+initiating the second task.
+
+---
+  2 - name: IOS Show commands
+  3   hosts: "all"
+  4   gather_facts: false
+  5   connection: local
+  6
+  7   vars:
+  8       cli:
+  9           host: "{{ ansible_host }}"
+ 10           username: "{{ username }}"
+ 11           password: "{{ password }}"
+ 12
+ 13   tasks:
+ 14       - name: ios show commands - Checking for iosxr routers
+ 15         ios_command:
+ 16             commands:
+ 17                 - show version
+ 18             wait_for: result[0] contains iosxr
+ 19             provider: "{{ cli }}"
+ 20
+ 21       - name: Adding few lines to iosxr
+ 22         iosxr_config:
+ 23             lines:
+ 24                 - logging buffered 2097152
+ 25                 - commit
+ 26             provider: "{{ cli }}"
+ 27         register: output
+ 28
+ 29       - name: Show Output
+ 30         debug:
+ 31             var: output
