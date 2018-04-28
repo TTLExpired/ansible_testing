@@ -10,5 +10,8 @@
   tasks:
     - name: Generating SNMP configs
       template:
+        # Ansible automatically search for files under templates directory
+        # os variable is defined in inventory. I created hpos for hp procurve for testing
         src: "snmp/{{ os }}.j2"
+        # Full path. 
         dest: "configs/snmp/{{ inventory_hostname }}.cfg"
