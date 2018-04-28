@@ -1,0 +1,9 @@
+snmp-server location {{ snmp.location }}
+snmp-server contact {{ snmp.contact }}
+{% for community in snmp.communities %}
+{% if community.type == "ro"%}
+snmp-server community {{ community.community }} operator
+{% elif community.type == "rw" %}
+snmp-server community {{ community.community }} unrestricted
+{% endif %}
+{% endfor %}

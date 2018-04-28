@@ -8,20 +8,35 @@ xrv1 ansible_host=192.168.7.254
 xrv2 ansible_host=192.168.7.253
 xrv3 ansible_host=192.168.7.252
 
+[iosxr:vars]
+os=iosxr
+
 [iosv]
 vIOS4 ansible_host=172.16.7.254
 vIOS5 ansible_host=172.16.7.253
 
+[iosv:vars]
+os=ios
+
 [nxos]
 NXOS ansible_host=172.16.7.252
+
+[nxos:vars]
+os=nxos
 
 [veos]
 vEOS9 ansible_host=10.0.7.254
 vEOS8 ansible_host=10.0.7.253
 
+[veos:vars]
+os=eos
+
 [csr]
 csr1 ansible_host=172.16.7.251
 csr2 ansible_host=172.16.7.250
+
+[csr:vars]
+os=ios
 
 [wlc]
 vWLC1 ansible_host=172.16.2.4
@@ -30,9 +45,13 @@ vWLC2 ansible_host=10.0.2.4
 [wlc:vars]
 username=mossesb
 password=Pas5w0rd
+os=airos
 
 [junos]
 Olive ansible_host=10.0.7.252
+
+[junos:vars]
+os=junos
 
 [junos:vars]
 username=root
@@ -44,3 +63,4 @@ HPSW1 ansible_host=172.16.8.4
 [hp:vars]
 username=admin
 password=password
+os=hpos

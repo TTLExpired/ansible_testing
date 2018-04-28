@@ -1,0 +1,7 @@
+---
+# Global Variables. Will be overwritten in each group if needed
+all:
+  vars:
+    ansible_connection: local
+    username: mossesb
+    password: password

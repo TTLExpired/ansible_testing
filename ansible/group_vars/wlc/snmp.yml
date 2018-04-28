@@ -1,0 +1,11 @@
+---
+# SNMP Configuration
+snmp:
+  contact: Bill Mosses
+  location: Area 51X
+  communities:
+    - community: ropublic
+      type: ro
+    - community: rwpublic
+      type: rw
+  host: 10.10.10.10

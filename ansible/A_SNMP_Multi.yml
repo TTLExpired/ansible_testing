@@ -1,0 +1,14 @@
+---
+
+# Generate snmp configs based on operating system
+
+- name: Play1 - Generating SNMP
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Generating SNMP configs
+      template:
+        src: "snmp/{{ os }}.j2"
+        dest: "configs/snmp/{{ inventory_hostname }}.cfg"
