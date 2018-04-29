@@ -1,0 +1,28 @@
+# A new test script
+import yaml
+
+# Testing if this can work
+print(" +++ Welcome to IOS writer +++")
+print(" IF you make a mistake at any time, press ctrl+c")
+print("let's begin")
+print('*'*60)
+
+# Lets establish an dictionary
+SystemGlobal = {}
+
+# Hostname
+SystemGlobal['hostname'] = input("What's the hostname? ")
+
+snmpID = input("Use hostname as snmp chassis id? [y/n]")
+
+if snmpID.lower() in ['y', 'yes']:
+    SystemGlobal['chassisID'] = SystemGlobal['hostname']
+else:
+    SystemGlobal['chassisID'] = input("Please Enter chassis ID ")
+
+# Lets print it in Yaml Format
+print("Here's what I have so far, in Yaml Format")
+print("---")
+print("system:")
+print(" hostname:" , SystemGlobal['hostname'])
+print(' snmpID' , SystemGlobal['chassisID'])

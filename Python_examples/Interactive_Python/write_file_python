@@ -1,0 +1,18 @@
+from jinja2 import Template
+import yaml
+import sys
+import os.path
+
+#Parse the YAML file and produce a Python dict.
+yaml_vars = yaml.load(open('C:/VARIABLES/N7K_VARS.yaml').read())
+
+#Load the Jinja2 template into a Python data structure.
+template = Template(open('C:/TEMPLATES/NEXUS_BASE.j2').read())
+
+#Render the configuration using the Jinja2 render method using yaml_vars as arg.
+rendered_config = template.render(yaml_vars)
+
+#Write the rendered configuration to a text file.
+with open('C:/CONFIGS/N7K1_rendered_config.txt', 'w') as config:
+    config.write(rendered_config)
+
