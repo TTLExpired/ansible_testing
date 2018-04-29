@@ -1,0 +1,14 @@
+---
+
+# Ansible playbook to generating global config
+
+- name: Play2 - Generate Global Config
+  hosts: csr
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Generate Global Configs for IOS Platform
+      template:
+        src: "global/{{ os }}.j2"
+        dest: "configs/global/{{ inventory_hostname }}.cfg"

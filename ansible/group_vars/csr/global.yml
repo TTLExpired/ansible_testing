@@ -1,0 +1,68 @@
+---
+
+# Global IOS Config Lines
+
+end_block: exit
+end_conf: end
+save_conf: write memory
+
+# Users:
+users:
+  1:
+    login: LastResort
+    priv: 15
+    secret: password
+  2:
+    login: mossesb
+    priv: 15
+    secret: password
+
+# Global Settings
+system:
+  tz: ADST +10
+  recur: 'ADST recurring 1 Sun Oct 2:00 1 Sun Apr 3:00'
+  fqdn: sesiahs.health.nsw.gov.au
+  name_server:
+    - 10.40.0.2
+    - 10.39.11.2
+  hosts:
+    - ntp1.sesiahs.health.nsw.gov.au
+    - ntp2.sesiahs.health.nsw.gov.au
+    - ranise02.sesahs.nsw.gov.au
+    - wolise02.lan.sesahs.nsw.gov.au
+  ntp:
+    - ntp1.sesiahs.health.nsw.gov.au
+    - ntp3.sesiahs.health.nsw.gov.au
+  radius_group: SESI_ISE
+
+# Radius Configuration
+radius:
+  1:
+    server: ranise02.sesahs.nsw.gov.au
+    address: 10.40.192.163
+    auth: 1812
+    acc: 1813
+    key: password
+  2:
+    server: wolise02.lan.sesahs.nsw.gov.au
+    address: 10.39.100.10
+    auth: 1812
+    acc: 1813
+    key: password
+
+# SNMP Configuration
+snmp:
+  contact: Bill Mosses
+  location: test location
+  host: 10.36.10.195
+  communities:
+    - community: public
+      type: ro
+    - community: private
+      type: rw
+
+# Spanning Tree _ MST
+spanningtree:
+  mst_process: STP_PROC
+  mst_revision: 10
+  mst_instance1: 1 - 4096
