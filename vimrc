@@ -121,6 +121,8 @@ Plug 'https://github.com/skywind3000/asyncrun.vim.git'
 Plug 'christoomey/vim-tmux-navigator'
 " Yaml
 Plug 'https://github.com/chase/vim-ansible-yaml.git'
+" Jinja
+Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 " AutoClose - Auto-pairs
