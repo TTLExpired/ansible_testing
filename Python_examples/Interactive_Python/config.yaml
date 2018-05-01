@@ -1,3 +1,5 @@
+---
+
 system:
-  location: Cisco
-  name: Cisco
+  location: cisco
+  name: cisco
