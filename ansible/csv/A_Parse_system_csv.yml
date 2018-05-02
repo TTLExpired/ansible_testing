@@ -1,0 +1,16 @@
+---
+# Prase csv file into yaml format
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+
+  vars:
+   csvfile: "{{ lookup('file', 'Cisco1.csv') }}"
+
+  tasks:
+   - name: Prase CSV to YAML
+     template:
+      src: "systemdetail.j2"
+      dest: "systemglobal.yml"
+     run_once: true

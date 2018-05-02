@@ -1,0 +1,4 @@
+Hostname,Location,vlanID,vlanName,vlanDESC,IP,Netmask,WildCard,Passive,Ports,Type
+Cisco1,Home,10,VLAN10,VLAN10,10.10.10.1,255.255.255.0,0.0.0.255,Yes,G1/1/1-48,Access
+,,20,VLAN20,VLAN20,20.20.20.1,255.255.255.0,0.0.0.255,Yes,G2/1/1-48,Trunk
+,,30,VLAN30,Vlan30,30.30.30.1,255.255.255.0,0.0.0.255,Yes,G2/1/1-48,Trunk
