@@ -277,7 +277,19 @@ map <F3> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
+" Autostart on the right side
+let g:NERDTreeWinPos = "right"
+" Make it look better
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" Auto start
+augroup NERD
+    au!
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
+augroup END
+" Auto close 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Tasklist ------------------------------
 
