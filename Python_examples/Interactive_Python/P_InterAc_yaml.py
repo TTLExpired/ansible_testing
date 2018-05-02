@@ -17,16 +17,12 @@ def GetValue(AssignedValue):
     return AssignedValue
 
 
-#
-################ Start Script #####################################
-#
-
 print(" +++ Welcome to IOS writer +++")
 print(" IF you make a mistake at any time, press ctrl+c")
 print("let's begin")
 print('*'*60)
 
-# We get some values. Static for now. Change to function later.
+# Hostname and SNMP Chassis ID
 hostname = input("Hostname? ")
 
 snmpid = input("Use hostname for snmp chassis-ID [Y/N]? ")
@@ -36,11 +32,18 @@ else:
     snmpchassis = input(" Snmp Chassis-id? ")
 print("chassis id is {}".format(snmpchassis))
 
-# Lets try printing - that would be its own function soon.
-print("Dumping data to files")
+timezone = input("Timezone? ")
+fqdn = input(" Domain Name? ")
+if hostname.lower() in fqdn:
+    fqdn = input("Please enter domain name without hostname: ")
+else:
+    pass
+if timezone == 'ADST +10':
+    recurr = 'ADST recurring 1 Sun Oct 2:00 1 Sun Apr 3:00'
 
 stream = open('config.yaml', 'w')
-yaml.dump({'system': {'name': hostname, 'location': snmpchassis}},
+yaml.dump({'system': {'name': hostname, 'location': snmpchassis,
+                      'tz': timezone, 'fqdn': fqdn, 'recurr': recurr }},
             stream, default_flow_style=False)
 
 """

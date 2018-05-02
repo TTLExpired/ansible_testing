@@ -1,5 +1,6 @@
----
-
 system:
-  location: cisco
-  name: cisco
+  fqdn: sesahs.nsw.gov.au
+  location: Cisco1
+  name: Cisco1
+  recurr: ADST recurring 1 Sun Oct 2:00 1 Sun Apr 3:00
+  tz: ADST +10
