@@ -1,0 +1,16 @@
+---
+# Prase csv file into yaml format
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+
+  vars:
+   csvfile: "{{ lookup('file', 'vlanData.csv') }}"
+
+  tasks:
+   - name: Prase CSV to YAML
+     template:
+      src: "vlandata.j2"
+      dest: "vlandata.yml"
+     run_once: true

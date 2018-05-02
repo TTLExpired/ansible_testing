@@ -1,0 +1,16 @@
+---
+# Generated VLAN Data in Yaml Format
+vlan:
+{% for item in csvfile.split("\n") %}
+{% if loop.index !=1 %}
+{% set list = item.split(",") %}
+ - {{ list[0]|trim() }}
+   name: {{ list[1]|trim() }}
+   desc: {{ list[2]|trim() }}
+   ip: {{ list[3]|trim() }}
+   mask: {{ list[4]|trim() }}
+   wild: {{ list[5]|trim() }}
+   passive: {{ list[6]|trim() }}
+   ptp: {{ list[7]|trim() }}
+{% endif %}
+{% endfor %}

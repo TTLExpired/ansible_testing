@@ -1,0 +1,52 @@
+csv_data:
+- !!python/object/apply:collections.OrderedDict
+  - - - vlanID
+      - '10'
+    - - vlanName
+      - VLAN10
+    - - vlanDESC
+      - VLAN10
+    - - IP
+      - 10.10.10.1
+    - - Netmask
+      - 255.255.255.0
+    - - WildCard
+      - 0.0.0.255
+    - - Passive
+      - 'Yes'
+    - - PtP
+      - 'No'
+- !!python/object/apply:collections.OrderedDict
+  - - - vlanID
+      - '20'
+    - - vlanName
+      - VLAN20
+    - - vlanDESC
+      - VLAN20
+    - - IP
+      - 20.20.20.1
+    - - Netmask
+      - 255.255.255.0
+    - - WildCard
+      - 0.0.0.255
+    - - Passive
+      - 'Yes'
+    - - PtP
+      - 'No'
+- !!python/object/apply:collections.OrderedDict
+  - - - vlanID
+      - '30'
+    - - vlanName
+      - VLAN30
+    - - vlanDESC
+      - Vlan30
+    - - IP
+      - 30.30.30.1
+    - - Netmask
+      - 255.255.255.0
+    - - WildCard
+      - 0.0.0.255
+    - - Passive
+      - 'Yes'
+    - - PtP
+      - 'No'

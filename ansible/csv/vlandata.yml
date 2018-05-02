@@ -1,0 +1,27 @@
+---
+# Generated VLAN Data in Yaml Format
+vlan:
+ - 10
+   name: VLAN10
+   desc: VLAN10
+   ip: 10.10.10.1
+   mask: 255.255.255.0
+   wild: 0.0.0.255
+   passive: Yes
+   ptp: No
+ - 20
+   name: VLAN20
+   desc: VLAN20
+   ip: 20.20.20.1
+   mask: 255.255.255.0
+   wild: 0.0.0.255
+   passive: Yes
+   ptp: No
+ - 30
+   name: VLAN30
+   desc: Vlan30
+   ip: 30.30.30.1
+   mask: 255.255.255.0
+   wild: 0.0.0.255
+   passive: Yes
+   ptp: No
