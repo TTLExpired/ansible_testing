@@ -91,7 +91,7 @@ Plug 'scrooloose/syntastic'
 Plug 'lilydjwg/colorizer'
 " Ack code search (requires ack installed in the system)
 Plug 'mileszs/ack.vim'
-" Vimus Pluginstall
+" Vimux Pluginstall
 Plug 'https://github.com/benmills/vimux'
 "
 if has('python')
@@ -123,6 +123,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'https://github.com/chase/vim-ansible-yaml.git'
 " Jinja
 Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
+" reative numbers
+Plug 'https://github.com/jeffkreeftmeijer/vim-numbertoggle'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 " AutoClose - Auto-pairs
@@ -172,7 +174,12 @@ set hlsearch
 syntax on
 
 " show line numbers
-set nu
+set number relativenumber
+
+" Set 80 character limit
+set colorcolumn=80
+set textwidth=80
+set formatoptions+=t
 
 " tab navigation mappings
 map tn :tabn<CR>
