@@ -1,0 +1,274 @@
+csv_data:
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - location
+    - - device1
+      - Home
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - timezone
+    - - device1
+      - ADST +10
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - recurring
+    - - device1
+      - 'Yes'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - name servers
+    - - device1
+      - 10.40.0.2
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - hosts
+    - - device1
+      - ntp1.sesahs.nsw.gov.au
+    - - ''
+      - wolise02.lan.sesahs.nsw.gov.au
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - ntp
+    - - device1
+      - ntp1.sesiahs.health.nsw.gov.au
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - radius_group
+    - - device1
+      - SESI-ISE
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - server_1
+    - - device1
+      - ranise02.sesahs.nsw.gov.au
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - ip
+    - - device1
+      - 10.40.192.163
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - auth_port
+    - - device1
+      - '1812'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - acc_port
+    - - device1
+      - '1813'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - key
+    - - device1
+      - password
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - server_2
+    - - device1
+      - wolise02.lan.sesahs.nsw.gov.au
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - ip
+    - - device1
+      - 10.39.100.10
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - auth_port
+    - - device1
+      - '1812'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - acc_port
+    - - device1
+      - '1813'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - key
+    - - device1
+      - password
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - readonly
+    - - device1
+      - ropublic
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - readwrite
+    - - device1
+      - rwpublic
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - location
+    - - device1
+      - home
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - trap
+    - - device1
+      - 10.36.10.195
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - community
+    - - device1
+      - ropublic
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - type
+    - - device1
+      - mst
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - process_name
+    - - device1
+      - STP_MST
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - revision
+    - - device1
+      - 10.36.10.195
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - instalce
+    - - device1
+      - 1-4095
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - vlans
+    - - device1
+      - ''
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - id
+    - - device1
+      - '10'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - name
+    - - device1
+      - VLAN10
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - ip
+    - - device1
+      - 10.10.10.1
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - mask
+    - - device1
+      - 255.255.255.0
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - wild_mask
+    - - device1
+      - 0.0.0.255
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - boot1
+    - - device1
+      - 10.45.206.102
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - boot2
+    - - device1
+      - 10.45.206.103
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - multicast
+    - - device1
+      - 'TRUE'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - ospf
+    - - device1
+      - 'yes'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - area
+    - - device1
+      - '10'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - passive
+    - - device1
+      - 'yes'
+    - - ''
+      - ''
+- !!python/object/apply:collections.OrderedDict
+  - - - hostname
+      - enable
+    - - device1
+      - 'yes'
+    - - ''
+      - ''

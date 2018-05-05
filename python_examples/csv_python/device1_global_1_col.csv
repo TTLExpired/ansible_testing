@@ -1,0 +1,25 @@
+hostname,Device_1
+location,Home
+timezone,ADST +10
+recurring,Yes
+DnsServers,"10.40.0.2,10.44.0.2"
+hosts,"ntp1.sesahs.nsw.gov.au,ntp3.sesahs.nsw.gov.au,ranise02.sesahs.nsw.gov.au,wolise02.lan.sesahs.nsw.gov.au"
+RadiusGroup,SESI-ISE
+RadiusServers,"ranise02.sesahs.nsw.gov.au,wolise02.lan.sesahs.nsw.gov.au"
+RadiusIp,"10.40.160.2,10.39.200.200"
+RaudiusAuthPort,1812
+RaudiusAccPort,1813
+RadiusKey,password
+SnmpRo,ropublic
+SnmpRw,rwpublic
+SnmpTrap,10.39.5.6
+TrapCommunity,ropublic
+VlanName,VLAN10
+VlanId,10
+VlanIp,10.10.10.1
+VlanMask,255.255.255.0
+VlanWildMask,0.0.0.255
+VlanOspfArea,10.10.10.1
+VlanOspfPassive,yes
+VlanMulticast,yes
+VlanOspfEnable,yes
