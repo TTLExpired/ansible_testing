@@ -1,16 +1,7 @@
----
 # Generated System Data in Yaml Format
 
-{% for item in csvfile.split("\n") %}
-{% if loop.index !=1 %}
-{% set list = item.split(",") %}
-{% if (list[0] or list[1])!= ',,' %}
- - hostname: {{ list[0]|trim() }}
- - location: {{ list[1]|trim() }}
- {% endif %}
-{% endif %}
-{% endfor %}
-
+system:
+ - Hostname: {{ csvfile.split(',') }}
 vlan:
 {% for item in csvfile.split("\n") %}
 {% if loop.index !=1 %}

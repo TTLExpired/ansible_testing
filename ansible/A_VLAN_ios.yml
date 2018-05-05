@@ -1,0 +1,12 @@
+---
+# Ansible VLAN Config
+- name: Play 3 - VLAN Configuration
+  hosts: csr
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Generate Global Configs for IOS Platform
+      template:
+        src: "vlan/{{ os }}.j2"
+        dest: "configs/vlan/{{ inventory_hostname }}.cfg"

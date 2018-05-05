@@ -1,0 +1,5 @@
+host,host_location,host_timezone,timezone_recurring,host_dns,host_hosts,host_ntp,host_radius_group,host_radius_1,radius_ip,radius_auth_port,radius_acc_port,host_radius_2,radius_auth_port,radius_acc_port,snmp_ro,snmp_rw,snmp_trap,snmp_trap_community,spanning_tree_type,mst_name,mst_revision,mst_vlan_range,vlan,vlan_id,vlan_name,vlan_ip,vlan_mask,vlan_wild_mask,vlan_boot1,vlan_boot2,vlan_mlticast,vlan_ospf,ospf_area,ospf_type,ospf_passive,ospf_enable,multicast
+device1,home,ADST +10,Yes,10.40.0.2,ntp1.sesahs.nsw.gov.au,ntp1.sesahs.nsw.gov.au,SESI_ISE,ranise02.sesahs.nsw.gov.au,10.40.192.163,1812,1813,wolise02.lan.sesahs.nsw.gov.au,1812,1813,ropublic,rwpublic,10.39.11.4,ropublic,mst,test,10,1-4095,10,10,VLAN10,10.10.10.1,255.255.255.0,0.0.0.255,10.45.206.102,10.45.206.103,yes,yes,10,broadcast,yes,yes,yes
+,,,,10.39.11.2,ntp3.sesahs.nsw.gov.au,ntp3.sesahs.nsw.gov.au,,,,,,10.39.100.2,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,ranise02.sesahs.nsw.gov.au,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,wolise02.lan.sesahs.nsw.gov.au,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,29 @@
+# Generated System Data in Yaml Format
+
+system:
+ - Hostname: [u'Hostname', u'Location', u'vlanID', u'vlanName', u'vlanDESC', u'IP', u'Netmask', u'WildCard', u'Passive', u'Ports', u'Type\nCisco1', u'Home', u'10', u'VLAN10', u'VLAN10', u'10.10.10.1', u'255.255.255.0', u'0.0.0.255', u'Yes', u'G1/1/1-48', u'Access\n', u'', u'20', u'VLAN20', u'VLAN20', u'20.20.20.1', u'255.255.255.0', u'0.0.0.255', u'Yes', u'G2/1/1-48', u'Trunk\n', u'', u'30', u'VLAN30', u'Vlan30', u'30.30.30.1', u'255.255.255.0', u'0.0.0.255', u'Yes', u'G2/1/1-48', u'Trunk']
+vlan:
+ - VLAN10
+   name: VLAN10
+   desc: 10.10.10.1
+   ip: 255.255.255.0
+   mask: 0.0.0.255
+   wild: Yes
+   passive: G1/1/1-48
+   ptp: Access
+ - VLAN20
+   name: VLAN20
+   desc: 20.20.20.1
+   ip: 255.255.255.0
+   mask: 0.0.0.255
+   wild: Yes
+   passive: G2/1/1-48
+   ptp: Trunk
+ - VLAN30
+   name: Vlan30
+   desc: 30.30.30.1
+   ip: 255.255.255.0
+   mask: 0.0.0.255
+   wild: Yes
+   passive: G2/1/1-48
+   ptp: Trunk
