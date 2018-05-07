@@ -1,0 +1,102 @@
+
+In [104]: x = {'Blue': 'Red'}
+
+In [105]: print(yaml.dump(x, default_flow_style=False))
+Blue: Red
+
+
+In [106]: x = {'Blue': 'Red', 'Green': 'Yellow'}
+
+In [107]: print(yaml.dump(x, default_flow_style=False))
+Blue: Red
+Green: Yellow
+
+
+In [108]: x = {'Blue': ['Red']}
+
+In [109]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+- Red
+
+
+In [110]: x = {'Blue': ['Red', 'Green', 'Yellow']}
+
+In [111]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+- Red
+- Green
+- Yellow
+
+
+In [112]: x = {'Blue': {'Red': 'Green'}}
+
+In [113]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+  Red: Green
+
+
+In [114]: 
+
+In [104]: x = {'Blue': 'Red'}
+
+In [105]: print(yaml.dump(x, default_flow_style=False))
+Blue: Red
+
+
+In [106]: x = {'Blue': 'Red', 'Green': 'Yellow'}
+
+In [107]: print(yaml.dump(x, default_flow_style=False))
+Blue: Red
+Green: Yellow
+
+
+In [108]: x = {'Blue': ['Red']}
+
+In [109]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+- Red
+
+
+In [110]: x = {'Blue': ['Red', 'Green', 'Yellow']}
+
+In [111]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+- Red
+- Green
+- Yellow
+
+
+In [112]: x = {'Blue': {'Red': 'Green'}}
+
+In [113]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+  Red: Green
+
+
+In [116]: x = {'Blue': {'red': ['Green', 'Yellow']}}
+
+In [117]: print(yaml.dump(x, default_flow_style=False))
+Blue:
+  red:
+  - Green
+  - Yellow
+
+In [120]: x = {'Red': {'Blue': {'Yellow': 'Green'}}}
+
+In [121]: print(yaml.dump(x, default_flow_style=False))
+Red:
+  Blue:
+    Yellow: Green
+
+In [141]: x  = {'system':{'tz': 'ADST +10', 'recurr': 'Yes', 'fqdn': 'sesahs.nsw.gov.au', 'name_server': ['10.40.0.1', '10.44.0.1']}}
+
+In [142]: print(yaml.dump(x, default_flow_style=False))
+system:
+  fqdn: sesahs.nsw.gov.au
+  name_server:
+  - 10.40.0.1
+  - 10.44.0.1
+  recurr: 'Yes'
+  tz: ADST +10
+
+

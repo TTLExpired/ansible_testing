@@ -7,8 +7,9 @@ import csv
             # print(row[0], row[1], row[2])
 
 
-with open('device1_global_1_row.csv') as csvfile:
+with open('device1_global_M_1_row.csv') as csvfile:
     readfile = csv.DictReader(csvfile)
     for row in readfile:
+        print(row)
         print(row['hostname'])
-        print(row['RadiusGroup'])
+        print('hostname: ' + row['RadiusGroup'])
