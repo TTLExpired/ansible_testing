@@ -177,7 +177,7 @@ syntax on
 set number relativenumber
 
 " Set 80 character limit
-set colorcolumn=80
+" set colorcolumn=80
 set textwidth=80
 set formatoptions+=t
 
@@ -283,11 +283,11 @@ let g:NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 " Auto start
-augroup NERD
-    au!
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-augroup END
+" augroup NERD
+"    au!
+"    autocmd VimEnter * NERDTree
+"    autocmd VimEnter * wincmd p
+" augroup END
 " Auto close 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

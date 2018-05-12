@@ -1,0 +1,80 @@
+def main()
+    filepath = "path"
+    # Get the book using xlrd
+    raw_from_excel = xlrd.open_workbook(filepath)
+
+    # First loop. Based on number of sheets within book.
+    # Start with first sheet.
+    for sheet in raw_from_excel.sheets()
+
+    number_of_rows = sheet.nrows
+    number_of_columns = sheet.ncols
+
+    # Lets create a list
+    # Initialise 'rows' list
+    rows = []
+    
+    # We start a new loop within the first sheet
+    for row in range(1, number_of_rows):
+        # Initialise an inner list
+        values = []
+        # Now we iteriate through columns
+        for col in range(number_of_columns):
+            # Get the cell value
+            value = (sheet.cell(row,col).value)
+            try:
+                # try to convert it to string
+                # Othereise, ignore.
+                value = str(int(value))
+            except: ValueError:
+                # If Python cannot conver it, pass it as is.
+                pass
+            finally:
+                # And this is were i went wrong. I didn't have this list
+                # indented within the same loop. I should have have two seperate
+                # lists such as Mila's.
+                values.append(value)
+            # We finally add the value(s) of cell(s) to the list. This is were
+            # you made mistakes
+            rows.append(values)
+    # We now call another function as we only populated a list. And we need to
+    # conver it to a dictionary.
+    output_directory = wrap_to_dicts(rows, filepath)
+    
+    # Pass 'rows' list to the function, with the filepath as the second
+    # variable.
+    def wrap_to_dicts(rows, filepath)
+    
+    # Initilise Global Dictionary. Key will be the sheet name.
+    global_dict = {}
+    # Get the book name and use it as Key
+    # Get the filepath and using 'basename' module, split at the "." and create
+    # a list. grap slot[0] in the created list. that would be the file name
+    first_key = basname(filepath).split(".")[0]
+    
+    # YOu also missed this explaining 'blanks' in your script
+    # The trick was creating another dictionary. Lets go through it.
+    curr_dict = {}
+    for row in rows:
+        # Another list. Watch this space
+        curr_values_list = []
+        # Start at row 0 to skip headers
+        if len(row) >=1:
+            # Convert to srting. Feel free to add an exception here.
+            # get the first cell value
+            key = str(row[0])
+            for i in range(1, len(row)):
+                # Note the parens. 
+                if (row[i] != ''):
+                    # Append all cell value(row?) to the list
+                    curr_values_list.append(row[i])
+                # Finally, take the key and whatever 'list' created under the if
+                # statement and add it to the dictionary.
+                # Dictionary    # List
+                curr_dict[key] = curr_values_list
+        # the final dictionary
+        # Remember, the first key will be the book name
+        # Dictionary            # Dictionary of all data
+        global_dict[first_key] = curr_dict
+        return global_dict
+
