@@ -1,14 +1,15 @@
 # A sample family dictionary
+import yaml
 
 family = {}
-members = {}
+person = {}
 
-family['family_name'] = input("Enter Family Name: ")
+family_name = input("Enter Family Name: ")
 
 while True:
     try:
-        if int(family['family_name']):
-            family['family_name'] = input("Strings only please: ")
+        if int(family_name):
+            family_name = input("Strings only please: ")
     except ValueError:
         break
 
@@ -24,10 +25,13 @@ while True:
 
 # We now start to loop for each members:
 for member in range(int(FamilyMembers)):
-    family[member] = {
-                'fname': input("Enter Name: "),
-                'age': input("Enter Agre: "),
-                'city': input("Enter City of Birth: ")
-                }
 
-print("Here's what we have so far {} ".format(family))
+    fname = input("Name? ")
+    age = input("Age? ")
+    city = input("City of Birth? ")
+
+    person[member] = {'name': fname, 'age': age, 'city': city}
+
+family[family_name] = person
+
+print(yaml.dump(family, default_flow_style=False))
