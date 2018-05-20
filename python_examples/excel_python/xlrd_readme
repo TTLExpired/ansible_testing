@@ -1,0 +1,70 @@
+An xlrd refresher...
+
+import xlrd
+or if you prefer to save typing and memory
+from xlrd import x, y, z
+
+1. Opening a book
+    xlrd.open_workbook('excel_book')
+or
+    book = open('excel_book').read()
+    xlrd.open_workbook(file_contents=book)
+
+2. Navigating a book
+workbook = xlrd.open_workbook('excel_book')
+    print(workbook.nsheets)
+To print sheet names
+    print(workbook.sheet_names())
+    ! The above line will present sheets ina list format:
+    ! ['sheet1', 'sheet2', 'sheet3']
+    for s in workbook.sheets():
+        print('Sheet:', s.name)
+    ! Will print a yaml style sheet names
+    ! sheet: sheet1
+    ! sheet: sheet2
+    ! sheet: sheet3
+
+xlrd.book:      all information to do with the file.
+nsheets:        Integer. Number of sheets.
+sheet_names:    Unitcode, names of all sheets.
+nrow|ncols      number of rows and columns per sheet.
+
+3. Assuming we opend a book with open_workbook called book
+    sheet = book.sheet_by_[index|name]('Global'|0)
+    print(sheet.name)
+    print(sheet.nrows)
+    print(sheet.ncols)
+
+    # Lets print the page in a plain format:
+		for row_index in range(sheet.nrows):
+            for col_index in range(sheet.ncols):
+
+                # Print the name of the cell
+                ! Note the difference between cell and cellname!
+                print (cellname(row_index,col_index)),'-',
+                # Print the value of the cell
+                print sheet.cell(row_index,col_index).value
+
+4.  Navigating rows/cloumns
+    print(sheet.row([index]))
+    Will print the row in an index with dictionary format
+    print(sheet.col([index]))
+    Will print the entire column.
+    ! If there are empty cells, they will show as 'empty:'''
+
+5.  row_slice:
+        returns a slice! Starting at cell x and ending with y.
+        row_slice(1,3) will start at row 1, starting at cell 3.
+        ! You can optionally add ending index
+
+6.  col_slice:
+        Exactly as row for columns. A starting index, a starting cell
+        and an optional end.
+
+7.  [row|col]_values:
+        Exactly the same but returns values, not prep with 'text'
+
+8. cellname, cellnameabs, colname:
+        use relative location, A2, B3, D17 and so on.
+
+
