@@ -5,6 +5,7 @@
 from os.path import basename
 from xlrd import open_workbook
 
+
 def wrap_to_dicts(rows, filepath):
   global_dict = {}
   first_key = basename(filepath).split(".")[0] # TODO(Bill): error handling here(if file does not exist etc.)

@@ -2,7 +2,7 @@ from xlrd import open_workbook, cellname
 
 # Initliaze a dictionary, then a list
 SheetDict = {}
-ValueItem = []
+RowDict = {}
 # First, lets open the book.
 book = open_workbook('SampleBook_Column.xlsx')
 sheet = book.sheet_by_name('Global')
@@ -24,13 +24,12 @@ while True:
 
 # We now try working on populating the diectionary.
 for row in range(sheet.nrows):
-    for col in range(sheet.ncols):
+    for col in range(1, sheet.ncols):
         if sheet.cell_value(row, col) != '':
-                    RowValue = sheet.row_slice(row, 0, 1)
+                    RowValue = sheet.cell_value(row, 0)
                     ColValue = sheet.cell_value(row, col)
-                    print(RowValue, ColValue)
-    ValueItem = []
-
-# Let's test
-for key, value in SheetDict.items():
-    print(key, value) 
+                    RowDict = {
+                            RowValue: ColValue
+                            }
+                    SheetDict.update(RowDict)
+print(SheetDict)
