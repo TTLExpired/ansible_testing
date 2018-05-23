@@ -125,6 +125,8 @@ Plug 'https://github.com/chase/vim-ansible-yaml.git'
 Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
 " reative numbers
 Plug 'https://github.com/jeffkreeftmeijer/vim-numbertoggle'
+" Visual Indentation
+Plug 'https://github.com/Yggdroot/indentLine'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 " AutoClose - Auto-pairs
@@ -445,6 +447,10 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_symbols.readonly = '⭤'
 "let g:airline_symbols.linenr = '⭡'
 "
+" IndentLine-----------------------------------------
+let g:indentLine_setColors = 1
+let g:indentLine_char = '|'
+
 " Add command to run Python Code
 map <F8> :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 " Close vim tmux runner opened by VimuxRunCommand

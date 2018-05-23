@@ -12,11 +12,11 @@ GlobalData = {}
 system = 'system'
 
 GlobalData[system] = {
-        'hostname': sheet.cell_value(1,1),
-        'timezone': sheet.cell_value(1,2),
+        'hostname': sheet.cell_value(1, 1),
+        'timezone': sheet.cell_value(1, 2),
         'recur': 'Sydney timezone',
-        'fqdn': sheet.cell_value(1,4),
-        'nameservers': sheet.cell_value(1,5)
+        'fqdn': sheet.cell_value(1, 4),
+        'nameservers': sheet.cell_value(1, 5)
         }
 
 print(yaml.dump(GlobalData, default_flow_style=False))
