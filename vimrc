@@ -451,6 +451,10 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:indentLine_setColors = 1
 let g:indentLine_char = '|'
 
+" VIMmux Horisontal only
+let g:VimuxOrientation = "v"
+let g:VimuxUseNearest = 0
+
 " Add command to run Python Code
 map <F8> :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 " Close vim tmux runner opened by VimuxRunCommand

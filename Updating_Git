@@ -23,5 +23,29 @@ git status
 git commit -m "Latest Update"
 
 # And that should send all your files
+# If you need to branch, ie, not work on master
+git branch 'name'
 
+# and to work on that branch
+git checkout 'name'
 
+# to check which branch you're currently on
+git branch
+
+# To push the new branch
+git push -u origin 'name'
+git branch -a
+
+# When you're done with the branch and want to mege it
+git checkout master     # Move back to master
+git pull                # Refresh
+git branch --merged
+git merge 'name'
+git push 
+
+# to see any differences in files
+git diff
+
+# You can now safetly delete your branch
+git branch -d 'name'
+git push --delete 'name'
