@@ -26,7 +26,7 @@ print(rows)
 # We now convert the created List to a Dictionary
 global_dict = {}
 curr_dict = {}
-first_key = 'Global'
+first_key = sheet.name
 
 for row in rows:
     curr_values_list = []
