@@ -1,4 +1,4 @@
-from xlrd import open_workbook, cellname
+from xlrd import open_workbook
 
 # We first open the book.
 book = open_workbook('SampleBook_Column.xlsx')
