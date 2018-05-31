@@ -1,0 +1,20 @@
+Global:
+  FQDN:
+  - billmosses.com
+  Hosts:
+  - host1.billmosses.com
+  - host2.billmosses.com
+  - host3.billmosses.com
+  - host4.billmosses.com
+  Location:
+  - Home
+  NTP:
+  - ntp1.billmosses.com
+  - ntp3.billmosses.com
+  NameServers:
+  - 10.10.10.100
+  - 10.10.20.100
+  RadiusGroup:
+  - RADIUS-GROUP
+  TimeZone:
+  - ADST +10

@@ -52,15 +52,16 @@ def print_in_yaml_format(dictionary):
     print(yaml.dump(dictionary, default_flow_style=False))
 
 
-def input_to_file(sheet, dictionary):
+def input_to_file(dictionary):
     '''
     Function to create Yaml format into a file based on sheet name.
     '''
-    file_name = sheet.name
-    with open(file_name, 'w') as f:
-        f.write(yaml.dump(dictionary, default_flow_style=False))
+    book_name = sys.argv[1]
+    book_name = book_name.split('.')
+    book_name = book_name[0]
 
-    print('Data copied to {} '.format(file_name))
+    with open(book_name, 'a') as f:
+        f.write(yaml.dump(dictionary, default_flow_style=False))
 
 
 def main():
@@ -69,16 +70,20 @@ def main():
     convert it to a list, followed by a dictionary.
     '''
     book = open_workbook(sys.argv[1])
-    sheet = book.sheet_by_index(0)
+    number_of_sheets = book.sheet_names()
 
-    number_of_rows = sheet.nrows
-    number_of_columns = sheet.ncols
+    for i in range(len(number_of_sheets)):
+        sheet = book.sheet_by_index(i) 
+        number_of_rows = sheet.nrows
+        number_of_columns = sheet.ncols
 
-    rows = convert_sheet_list(sheet, number_of_rows, number_of_columns)
-    global_dict = convert_list_dictionary(sheet, rows)
+        rows = convert_sheet_list(sheet, number_of_rows, number_of_columns)
+        global_dict = convert_list_dictionary(sheet, rows)
 
-    # Let's test by printing rows
-    input_to_file(sheet, global_dict)
+        # Let's test by printing rows
+        input_to_file(global_dict)
+
+    print("Data copied to {} ".format(sys.argv[1]))
 
 
 if __name__ == "__main__":

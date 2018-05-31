@@ -1,0 +1,95 @@
+Global:
+  FQDN:
+  - billmosses.com
+  Hosts:
+  - host1.billmosses.com
+  - host2.billmosses.com
+  - host3.billmosses.com
+  Local_User:
+  - mossesb
+  Location:
+  - Home
+  NTP_Servers:
+  - ntp1.billmosses.com
+  - ntp3.billmosses.com
+  Name_Servers:
+  - 10.10.10.10
+  - 10.10.10.11
+  Priviedge:
+  - '15'
+  Radius_Groups:
+  - Home-Home
+  Recurring:
+  - 'Yes'
+  SNMP_Chassis_ID:
+  - N-TST-EBB01-LV01
+  SNMP_Community_RO:
+  - ropublic
+  SNMP_Community_RW:
+  - rwprivate
+  SNMP_Location:
+  - Home
+  SNMP_Trap:
+  - 10.10.10.20
+  SNMP_Trap_Community:
+  - ropublic
+  SNMP_Version:
+  - 2c
+  Secret:
+  - password
+  Timezone:
+  - ADST +10
+STP:
+  STP_MST_Instance:
+  - '10'
+  STP_MST_Revision:
+  - '1'
+  STP_Priority:
+  - '0'
+  STP_VLANs:
+  - 1-4094
+RADIUS:
+  RADIUS_SERVER_1_Add:
+  - 10.10.20.10
+  RADIUS_SERVER_1_AuthP:
+  - '1812'
+  RADIUS_SERVER_2:
+  - radius3.billmosses.com
+  RADIUS_SERVER_2_AccP:
+  - '1813'
+  RADIUS_SERVER_2_Add:
+  - 10.10.20.11
+  RADIUS_SERVER_2_AuthP:
+  - '1812'
+VLANs:
+  OSPF_AREA:
+  - '10'
+  VLAN_BOOTP_1:
+  - 10.100.10.10
+  VLAN_BOOTP_2:
+  - 10.100.10.11
+  VLAN_ENABLE:
+  - 'Yes'
+  VLAN_ID:
+  - '30'
+  VLAN_IP:
+  - 30.30.30.1
+  VLAN_MASK:
+  - 255.255.255.0
+  VLAN_NAME:
+  - VLAN30
+  VLAN_W_MASK:
+  - 0.0.0.255
+Ports:
+  Chassis_ID: []
+  End_Port: []
+  SLOT_ID: []
+  Snooping: []
+  Start_Port: []
+  Type: []
+  VLAN: []
+  VOIP_VLAN: []
+PtP: {}
+OSPF:
+  OSPF_AREA:
+  - '0'
