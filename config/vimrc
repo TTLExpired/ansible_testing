@@ -48,7 +48,8 @@ Plug 'fisadev/vim-ctrlp-cmdpalette'
 " Zen coding
 Plug 'mattn/emmet-vim'
 " Git integration
-Plug 'motemen/git-vim'
+Plug 'https://github.com/tpope/vim-fugitive'
+" Plug 'motemen/git-vim'
 " Tab list panel
 Plug 'kien/tabman.vim'
 " Airline
@@ -150,6 +151,9 @@ endif
 
 " no vi-compatible
 set nocompatible
+
+" set utf-8
+set encoding=utf-8
 
 " allow plugins by file type (required for plugins!)
 filetype plugin on
@@ -456,6 +460,11 @@ let g:indentLine_char = '|'
 " VIMmux Horisontal only
 let g:VimuxOrientation = "v"
 let g:VimuxUseNearest = 0
+
+" Fold Code as required with za
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
 
 " Add command to run Python Code
 map <F8> :call VimuxRunCommand("clear; python " . bufname("%"))<cr>

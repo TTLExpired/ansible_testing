@@ -20,7 +20,8 @@ def convert_sheet_list(sheet, xrows, ycolumns):
                 finally:
                     values.append(value)
         rows.append(values)
-
+    
+    print(rows)
     return rows
 
 
