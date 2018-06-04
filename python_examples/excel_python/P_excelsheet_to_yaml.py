@@ -1,5 +1,6 @@
 import sys
 import yaml
+from pudb import set_trace
 from xlrd import open_workbook
 
 
@@ -7,10 +8,14 @@ def convert_sheet_list(sheet, xrows, ycolumns):
     '''
     A function to convert the spreadsheet into a nested list.
     '''
+    set_trace()
     rows = []
-    for row in range(1, xrows):
+    for row in range(0, xrows):
         values = []
-        for col in range(ycolumns):
+        value = (sheet.cell(row, 0).value)
+        if value != '':
+            values.insert(row, value)
+        for col in range(1, ycolumns):
             value = (sheet.cell(row, col).value)
             if value != '':
                 try:
@@ -19,8 +24,9 @@ def convert_sheet_list(sheet, xrows, ycolumns):
                     pass
                 finally:
                     values.append(value)
-        rows.append(values)
+    rows.append(values)
 
+    print(rows)
     return rows
 
 
@@ -79,8 +85,9 @@ def main():
     rows = convert_sheet_list(sheet, number_of_rows, number_of_columns)
     global_dict = convert_list_dictionary(sheet, rows)
 
+    print(global_dict)
     # Let's test by printing rows
-    input_to_file(global_dict)
+    # input_to_file(global_dict)
 
 
 if __name__ == "__main__":
