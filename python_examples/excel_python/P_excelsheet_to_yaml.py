@@ -8,23 +8,28 @@ def convert_sheet_list(sheet, xrows, ycolumns):
     '''
     A function to convert the spreadsheet into a nested list.
     '''
-    set_trace()
     rows = []
     for row in range(0, xrows):
         values = []
         value = (sheet.cell(row, 0).value)
         if value != '':
+            internal_value = []
             values.insert(row, value)
-        for col in range(1, ycolumns):
-            value = (sheet.cell(row, col).value)
-            if value != '':
-                try:
-                    value = str(int(value))
-                except ValueError:
-                    pass
-                finally:
-                    values.append(value)
-    rows.append(values)
+            row_position = row
+            for row in range(1, xrows):
+                for col in range(1, ycolumns):
+                    if ycolumns != '':
+                        value = (sheet.cell(row, col).value)
+                        if value != '':
+                            try:
+                                value = str(int(value))
+                            except ValueError:
+                                pass
+                            finally:
+                                internal_value.append(value)
+            values.insert(row_position, internal_value)
+
+        rows.append(values)
 
     print(rows)
     return rows
