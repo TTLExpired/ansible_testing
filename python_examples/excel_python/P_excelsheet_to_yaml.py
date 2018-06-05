@@ -8,13 +8,21 @@ def convert_sheet_list(sheet, xrows, ycolumns):
     '''
     A function to convert the spreadsheet into a nested list.
     '''
-    set_trace()
     rows = []
+
     for first_row in range(0, xrows):
+        row_counter = 0
+        jump_counter = 0
         key_value = (sheet.cell(first_row, 0).value)
+
         if key_value != '':
             internal_value = []
+            col_counter = sheet.ncols
             rows.insert(first_row, key_value)
+
+        if key_value == '':
+            row_counter += 1
+
         for col in range(1, ycolumns):
             data_value = (sheet.cell(first_row, col).value)
             if data_value != '':
@@ -24,8 +32,8 @@ def convert_sheet_list(sheet, xrows, ycolumns):
                     pass
                 finally:
                     internal_value.append(data_value)
-
-        if len(internal_value) != 0:
+                    jump_counter += 1
+        if jump_counter == col_counter * row_counter:  
             rows.append(internal_value)
 
     print(rows)
@@ -36,6 +44,7 @@ def convert_list_dictionary(sheet, nested_list):
     '''
     A function to convert the list created earlier into a nested dictionary.
     '''
+    set_trace()
     global_dict = {}
     curr_dict = {}
     first_key = sheet.name
@@ -43,7 +52,7 @@ def convert_list_dictionary(sheet, nested_list):
     for row in nested_list:
         curr_values_list = []
         if len(row) >= 1:
-            key = str(row[0])
+            key = str(row)
             for i in range(1, len(row)):
                 if row[i] != '':
                     curr_values_list.append(row[i])
@@ -80,7 +89,7 @@ def main():
     convert it to a list, followed by a dictionary.
     '''
     book = open_workbook(sys.argv[1])
-    sheet = book.sheet_by_index(0) 
+    sheet = book.sheet_by_index(0)
     number_of_rows = sheet.nrows
     number_of_columns = sheet.ncols
 
