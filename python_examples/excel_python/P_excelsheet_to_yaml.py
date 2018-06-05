@@ -11,7 +11,6 @@ def convert_sheet_list(sheet, xrows, ycolumns):
     set_trace()
     rows = []
     for first_row in range(0, xrows):
-        values = []
         key_value = (sheet.cell(first_row, 0).value)
         if key_value != '':
             internal_value = []
@@ -26,7 +25,8 @@ def convert_sheet_list(sheet, xrows, ycolumns):
                 finally:
                     internal_value.append(data_value)
 
-        rows.append(internal_value)
+        if len(internal_value) != 0:
+            rows.append(internal_value)
 
     print(rows)
     return rows
