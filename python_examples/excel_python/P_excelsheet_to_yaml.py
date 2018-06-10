@@ -4,101 +4,55 @@ from pudb import set_trace
 from xlrd import open_workbook
 
 
-def convert_sheet_list(sheet, xrows, ycolumns):
+def convert_data_to_dict(sheet, nrows, ncols):
     '''
-    A function to convert the spreadsheet into a nested list.
+    Function to convert raw Excell Data into a dictionary format. With Python
+    3.6 and above, Dictionaries are no longer random! We make use of that to
+    trim our code.
     '''
-    rows = []
 
-    for first_row in range(0, xrows):
-        row_counter = 0
-        jump_counter = 0
-        key_value = (sheet.cell(first_row, 0).value)
+    # set_trace()
+    initial_dict = {}
+    sheet_dict = {}
+    initial_list = []
 
-        if key_value != '':
-            internal_value = []
-            col_counter = sheet.ncols
-            rows.insert(first_row, key_value)
+    # Lets start with some data gathering.
+    for section_key in range(0, nrows):
+        row_key_value = (sheet.cell(section_key, 0).value)
+        if row_key_value != '':
+            key = str(row_key_value)
+            for col in range(1, ncols):
+                cell_col_value = (sheet.cell(section_key, col).value)
+                if cell_col_value != '':
+                    initial_list.append(cell_col_value)
+                    initial_dict = {key: initial_list}
 
-        if key_value == '':
-            row_counter += 1
+        initial_dict[key].append(initial_list)
 
-        for col in range(1, ycolumns):
-            data_value = (sheet.cell(first_row, col).value)
-            if data_value != '':
-                try:
-                    data_value = str(int(data_value))
-                except ValueError:
-                    pass
-                finally:
-                    internal_value.append(data_value)
-                    jump_counter += 1
-        if jump_counter == col_counter * row_counter:  
-            rows.append(internal_value)
+        sheet_dict[sheet.name] = initial_dict
 
-    print(rows)
-    return rows
+    return sheet_dict
 
 
-def convert_list_dictionary(sheet, nested_list):
-    '''
-    A function to convert the list created earlier into a nested dictionary.
-    '''
-    set_trace()
-    global_dict = {}
-    curr_dict = {}
-    first_key = sheet.name
-
-    for row in nested_list:
-        curr_values_list = []
-        if len(row) >= 1:
-            key = str(row)
-            for i in range(1, len(row)):
-                if row[i] != '':
-                    curr_values_list.append(row[i])
-            curr_dict[key] = curr_values_list
-    global_dict[first_key] = curr_dict
-
-    return global_dict
-
-
-def print_in_yaml_format(dictionary):
-    '''
-    Function to simply print dictinary in Yaml Format
-    '''
-    print(yaml.dump(dictionary, default_flow_style=False))
-
-
-def input_to_file(dictionary):
-    '''
-    Function to create Yaml format into a file based on sheet name.
-    '''
-    book_name = sys.argv[1]
-    book_name = book_name.split('.')
-    book_name = book_name[0]
-
-    with open(book_name, 'w') as f:
-        f.write(yaml.dump(dictionary, default_flow_style=False))
-
-    print('Data copied to {} '.format(book_name))
+def convert_rows_to_yaml():
+    pass
 
 
 def main():
     '''
-    the main function is simply taking the file name and sending it to
-    convert it to a list, followed by a dictionary.
+    The main function to take spreadsheet name. And send it to appropriate
+    functions for processing.
     '''
+
     book = open_workbook(sys.argv[1])
     sheet = book.sheet_by_index(0)
-    number_of_rows = sheet.nrows
-    number_of_columns = sheet.ncols
 
-    rows = convert_sheet_list(sheet, number_of_rows, number_of_columns)
-    global_dict = convert_list_dictionary(sheet, rows)
+    number_of_rows = sheet.nrows
+    number_of_cols = sheet.ncols
+
+    global_dict = convert_data_to_dict(sheet, number_of_rows, number_of_cols)
 
     print(global_dict)
-    # Let's test by printing rows
-    # input_to_file(global_dict)
 
 
 if __name__ == "__main__":
