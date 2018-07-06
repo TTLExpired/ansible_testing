@@ -130,6 +130,10 @@ Plug 'https://github.com/jeffkreeftmeijer/vim-numbertoggle'
 Plug 'https://github.com/Yggdroot/indentLine'
 " pdf reader
 Plug 'https://github.com/makerj/vim-pdf'
+" repeat vim
+Plug 'https://github.com/tpope/vim-repeat'
+" easyclip
+Plug 'https://github.com/svermeulen/vim-easyclip'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 " AutoClose - Auto-pairs
@@ -471,7 +475,8 @@ map <F8> :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 " Close vim tmux runner opened by VimuxRunCommand
 map <Leader>b :VimuxCloseRunner<CR>
 " nnoremap <leader>r :w \| !python3 %<cr>
-
+" remap mark key to cater for easyclip
+nnoremap gm m
 " We now utilise Async Shell for script execution
 "autocmd! FileType python nnoremap <buffer> <F7> :exec '!python' shellescape(@%, 1)<cr>
 autocmd! FileType python nnoremap <buffer> <F7> :exec 'AsyncRun -raw python %'<cr>
