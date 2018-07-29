@@ -134,6 +134,8 @@ Plug 'https://github.com/makerj/vim-pdf'
 Plug 'https://github.com/tpope/vim-repeat'
 " easyclip
 Plug 'https://github.com/svermeulen/vim-easyclip'
+" ALE
+Plug 'https://github.com/w0rp/ale'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 " AutoClose - Auto-pairs
