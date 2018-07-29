@@ -136,6 +136,8 @@ Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/svermeulen/vim-easyclip'
 " ALE
 Plug 'https://github.com/w0rp/ale'
+" Color Brackets
+Plug 'https://github.com/luochen1990/rainbow'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 " AutoClose - Auto-pairs
@@ -371,6 +373,9 @@ let g:jedi#usages_command = ',o'
 let g:jedi#goto_assignments_command = ',a'
 " Go to definition in new tab
 nmap ,D :tab split<CR>:call jedi#goto()<CR>
+
+" Color Brackets
+let g:rainbow_active = 1
 
 " NeoComplCache ------------------------------
 
