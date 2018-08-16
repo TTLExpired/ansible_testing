@@ -1,4 +1,6 @@
 # A quick script to input n number in a list and display them.
+# Not sure if this is going to work as it shouuld.
+# TODO: Check this also works.
 
 List = []
 ListLength = input("How many entries in your list? ")
