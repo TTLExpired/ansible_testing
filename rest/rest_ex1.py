@@ -29,7 +29,8 @@ def main():
         temp = openweather(city)
         city_temp = temp['main']['temp']
         city_condition = temp['weather'][0]['description']
-        print('City: ' + city, 'temp ', city_temp, 'condition ', city_condition)
+        print('City: ' + city, 'temp ', city_temp,
+              'condition ', city_condition)
 
 
 if __name__ == '__main__':
