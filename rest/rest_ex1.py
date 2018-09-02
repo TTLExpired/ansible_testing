@@ -23,9 +23,12 @@ def openweather(city):
 
 def main():
     # city = input('Enter City: ')
-    cities = ['Sydney', 'Cairo', 'Moscow', 'New York', 'Gilbert']
-    for city in cities:
+    with open('city_list_smaller.json') as f:
+        cities = json.load(f)
+
+    for key in cities:
        # Send city to openweather function
+        city = key['city']
         temp = openweather(city)
         city_temp = temp['main']['temp']
         city_condition = temp['weather'][0]['description']

@@ -1,146 +1,212 @@
 [
   {
     "id": 707860,
-    "name": "Hurzuf",
-    "country": "UA",
-    "coord": {
-      "lon": 34.283333,
-      "lat": 44.549999
-    }
+    "city": "Hurzuf",
+    "country": "UA"
   },
   {
     "id": 519188,
-    "name": "Novinki",
-    "country": "RU",
-    "coord": {
-      "lon": 37.666668,
-      "lat": 55.683334
-    }
+    "city": "Novinki",
+    "country": "RU"
   },
   {
     "id": 1283378,
-    "name": "Gorkhā",
-    "country": "NP",
-    "coord": {
-      "lon": 84.633331,
-      "lat": 28
-    }
+    "city": "Gorkh\u0101",
+    "country": "NP"
   },
   {
     "id": 1270260,
-    "name": "State of Haryāna",
-    "country": "IN",
-    "coord": {
-      "lon": 76,
-      "lat": 29
-    }
+    "city": "State of Hary\u0101na",
+    "country": "IN"
   },
   {
     "id": 708546,
-    "name": "Holubynka",
-    "country": "UA",
-    "coord": {
-      "lon": 33.900002,
-      "lat": 44.599998
-    }
+    "city": "Holubynka",
+    "country": "UA"
   },
   {
     "id": 1283710,
-    "name": "Bāgmatī Zone",
-    "country": "NP",
-    "coord": {
-      "lon": 85.416664,
-      "lat": 28
-    }
+    "city": "B\u0101gmat\u012b Zone",
+    "country": "NP"
   },
   {
     "id": 529334,
-    "name": "Mar’ina Roshcha",
-    "country": "RU",
-    "coord": {
-      "lon": 37.611111,
-      "lat": 55.796391
-    }
+    "city": "Mar\u2019ina Roshcha",
+    "country": "RU"
   },
   {
     "id": 1269750,
-    "name": "Republic of India",
-    "country": "IN",
-    "coord": {
-      "lon": 77,
-      "lat": 20
-    }
+    "city": "Republic of India",
+    "country": "IN"
   },
   {
     "id": 1283240,
-    "name": "Kathmandu",
-    "country": "NP",
-    "coord": {
-      "lon": 85.316666,
-      "lat": 27.716667
-    }
+    "city": "Kathmandu",
+    "country": "NP"
   },
   {
     "id": 703363,
-    "name": "Laspi",
-    "country": "UA",
-    "coord": {
-      "lon": 33.733334,
-      "lat": 44.416668
-    }
+    "city": "Laspi",
+    "country": "UA"
   },
   {
     "id": 3632308,
-    "name": "Merida",
-    "country": "VE",
-    "coord": {
-      "lon": -71.144997,
-      "lat": 8.598333
-    }
+    "city": "Merida",
+    "country": "VE"
   },
   {
     "id": 473537,
-    "name": "Vinogradovo",
-    "country": "RU",
-    "coord": {
-      "lon": 38.545555,
-      "lat": 55.423332
-    }
+    "city": "Vinogradovo",
+    "country": "RU"
   },
   {
     "id": 384848,
-    "name": "Qarah Gawl al ‘Ulyā",
-    "country": "IQ",
-    "coord": {
-      "lon": 45.6325,
-      "lat": 35.353889
-    }
+    "city": "Qarah Gawl al \u2018Uly\u0101",
+    "country": "IQ"
   },
   {
     "id": 569143,
-    "name": "Cherkizovo",
-    "country": "RU",
-    "coord": {
-      "lon": 37.728889,
-      "lat": 55.800835
-    }
+    "city": "Cherkizovo",
+    "country": "RU"
   },
   {
     "id": 713514,
-    "name": "Alupka",
-    "country": "UA",
-    "coord": {
-      "lon": 34.049999,
-      "lat": 44.416668
-    }
+    "city": "Alupka",
+    "country": "UA"
   },
   {
     "id": 2878044,
-    "name": "Lichtenrade",
-    "country": "DE",
-    "coord": {
-      "lon": 13.40637,
-      "lat": 52.398441
-    }
+    "city": "Lichtenrade",
+    "country": "DE"
+  },
+  {
+    "id": 464176,
+    "city": "Zavety Il\u2019icha",
+    "country": "RU"
+  },
+  {
+    "id": 295582,
+    "city": "\u2018Azriqam",
+    "country": "IL"
+  },
+  {
+    "id": 1271231,
+    "city": "Gh\u016bra",
+    "country": "IN"
+  },
+  {
+    "id": 690856,
+    "city": "Tyuzler",
+    "country": "UA"
+  },
+  {
+    "id": 464737,
+    "city": "Zaponor\u2019ye",
+    "country": "RU"
+  },
+  {
+    "id": 707716,
+    "city": "Il\u2019ich\u00ebvka",
+    "country": "UA"
+  },
+  {
+    "id": 697959,
+    "city": "Partyzans\u2019ke",
+    "country": "UA"
+  },
+  {
+    "id": 803611,
+    "city": "Yurevichi",
+    "country": "RU"
+  },
+  {
+    "id": 614371,
+    "city": "Gumist\u2019a",
+    "country": "GE"
+  },
+  {
+    "id": 874560,
+    "city": "Ptitsefabrika",
+    "country": "GE"
+  },
+  {
+    "id": 874652,
+    "city": "Orekhovo",
+    "country": "GE"
+  },
+  {
+    "id": 2347078,
+    "city": "Birim",
+    "country": "NG"
+  },
+  {
+    "id": 2051302,
+    "city": "Priiskovyy",
+    "country": "RU"
+  },
+  {
+    "id": 563692,
+    "city": "Dzhaga",
+    "country": "RU"
+  },
+  {
+    "id": 481725,
+    "city": "Tret\u2019ya Rota",
+    "country": "RU"
+  },
+  {
+    "id": 2638976,
+    "city": "Ruislip",
+    "country": "GB"
+  },
+  {
+    "id": 2892705,
+    "city": "Karow",
+    "country": "DE"
+  },
+  {
+    "id": 2922336,
+    "city": "Gatow",
+    "country": "DE"
+  },
+  {
+    "id": 975511,
+    "city": "Mkuze",
+    "country": "ZA"
+  },
+  {
+    "id": 1280737,
+    "city": "Lhasa",
+    "country": "CN"
+  },
+  {
+    "id": 745042,
+    "city": "\u0130stanbul",
+    "country": "TR"
+  },
+  {
+    "id": 3496831,
+    "city": "Mao",
+    "country": "DO"
+  },
+  {
+    "id": 2017370,
+    "city": "Russian Federation",
+    "country": "RU"
+  },
+  {
+    "id": 2045761,
+    "city": "De-Friz",
+    "country": "RU"
+  },
+  {
+    "id": 1257986,
+    "city": "Rumbak",
+    "country": "IN"
+  },
+  {
+    "id": 476350,
+    "city": "Vavibet",
+    "country": "RU"
   }
 ]
