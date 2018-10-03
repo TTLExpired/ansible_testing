@@ -1,0 +1,1 @@
+print(devices_url)

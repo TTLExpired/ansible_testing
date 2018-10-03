@@ -1,0 +1,35 @@
+Nexus Always On Lab
+
+Access Details:
+Developers and network engineers access the "Open NX-OS Programmability" Always On Sandbox directly using the following information:
+
+    Nexus 9000v Host : sbx-nxos-mgmt.cisco.com
+    SSH Port: 8181
+    NETCONF Port: 10000
+    NXAPI Ports: 80 (http) & 443 (HTTPS)
+    RESTCONF Port : 443 (HTTPS)
+    Credentials:
+        Username: admin
+        Password: Admin_1234!
+
+IOS XE Always On Lab
+
+Access Details:
+Developers and network engineers access the "NETCONF/YANG and RESTCONF on IOS XE" Always On Sandbox directly using the following information:
+
+CSR1000V Host : ios-xe-mgmt.cisco.com
+SSH Port: 8181
+NETCONF Port: 10000
+RESTCONF Port : 9443 (HTTPS)
+Credentials:
+
+    Username: root
+    Password: D_Vay!_10&
+
+Prime 3.3 - REST only
+Access Details:
+This Lab requires that POSTMAN or some other web based REST client be used to make the REST API calls. See the "Code Sample" Tab for an example of making an API call using Python.
+
+    URL: https://primeinfrasandbox.cisco.com
+    API Basic Auth Username: devnetuser
+    API Basic Auth Password: DevNet123!
