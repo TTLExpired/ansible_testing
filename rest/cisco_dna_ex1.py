@@ -4,6 +4,12 @@ import requests
 # First example script to pulling data of Cisco Always on DNA service.
 
 def get_auth_token(auth_url, username, password):
+    '''
+    A function to get token.
+    1 - Get the URL from MAIN
+    2 - Use the username and password given by Cisco Always on Labs
+    3 - Return Token, strip the dictionary and send value.
+    '''
     token = requests.post(auth_url, auth=(username, password)).json()
 
     # Return just the token. Fuck dictionary
@@ -11,6 +17,14 @@ def get_auth_token(auth_url, username, password):
 
 
 def get_net_devices(devices_url, headers):
+    '''
+    A function to return list of network devices.
+    Very specific. However, it has a couple of things:
+    1 - Headers - A constant to use in Requests libary.
+    2 - Format in JSON.
+
+    Return Value
+    '''
     devices = requests.get(devices_url, headers=headers).json()
     # Return Device Data
     return devices
@@ -29,6 +43,8 @@ def main():
 
     Please note this ex1. There will be more examples of this shit as
     we go along.
+
+    Please note the difference between AUTH URL and network-device URL!!!
     '''
     # Let's start with basic defs
     cisco_url = 'https://sandboxdnac.cisco.com/'
