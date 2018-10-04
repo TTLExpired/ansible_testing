@@ -3,6 +3,7 @@ import requests
 
 # First example script to pulling data of Cisco Always on DNA service.
 
+
 def get_auth_token(auth_url, username, password):
     '''
     A function to get token.
@@ -27,7 +28,7 @@ def get_net_devices(devices_url, headers):
     '''
     devices = requests.get(devices_url, headers=headers).json()
     # Return Device Data
-    return devices
+    return devices['response']
 
 
 def main():
@@ -52,7 +53,6 @@ def main():
     get_url = 'api/v1/'
     auth_url = 'auth/token/'
     devices_url = 'network-device'
-
     # User Creds
     username = 'devnetuser'
     password = 'Cisco123!'
@@ -73,7 +73,7 @@ def main():
     # Now that we have the headers, lets pull some devices info
     network_devices = get_net_devices(devices_url, headers)
 
-    # Let's print it for testing.
+    # print(json.dumps(network_devices, indent=2))
     print(json.dumps(network_devices, indent=2))
 
 
