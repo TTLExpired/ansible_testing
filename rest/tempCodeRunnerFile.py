@@ -1,1 +1,0 @@
-print(devices_url)
