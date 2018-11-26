@@ -1,7 +1,15 @@
-import xlrd
+import netmiko
 
-book = xlrd.open_workbook('Cisco1_3850.xlsx')
+import os
+
+import sys
+
+def print_name(fname, lname):
+    pass
 
 
-for sheet in book.sheets():
-    print ( sheet.name )
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
