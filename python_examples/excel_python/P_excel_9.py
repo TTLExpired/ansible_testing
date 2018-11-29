@@ -37,5 +37,3 @@ for row in rows:
                 curr_values_list.append(row[i])
         curr_dict[key] = curr_values_list
 global_dict[first_key] = curr_dict
-
-print(global_dict)

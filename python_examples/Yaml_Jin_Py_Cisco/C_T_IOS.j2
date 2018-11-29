@@ -62,41 +62,41 @@ auth-type any
 !
 !
 !
-aaa authentication login default group {{ system.radius_group }} local 
-aaa authentication dot1x default group {{ system.radius_group }} 
-aaa authorization exec default group {{ system.radius_group }} local 
-aaa authorization network default group {{ system.radius_group }} 
-aaa authorization auth-proxy default group {{ system.radius_group }} 
-aaa accounting update periodic 15 
-aaa accounting auth-proxy default start-stop group {{ system.radius_group }} 
-aaa accounting dot1x default start-stop group {{ system.radius_group }} 
-aaa accounting exec default start-stop group {{ system.radius_group }} 
+aaa authentication login default group {{ system.radius_group }} local
+aaa authentication dot1x default group {{ system.radius_group }}
+aaa authorization exec default group {{ system.radius_group }} local
+aaa authorization network default group {{ system.radius_group }}
+aaa authorization auth-proxy default group {{ system.radius_group }}
+aaa accounting update periodic 15
+aaa accounting auth-proxy default start-stop group {{ system.radius_group }}
+aaa accounting dot1x default start-stop group {{ system.radius_group }}
+aaa accounting exec default start-stop group {{ system.radius_group }}
 !
 !
-radius-server attribute 6 on-for-login-auth 
-radius-server attribute 6 support-multiple 
-radius-server attribute 8 include-in-access-req 
-radius-server attribute 25 access-request include 
-radius-server attribute 31 mac format ietf 
-radius-server attribute 31 send nas-port-detail mac-only 
-radius-server dead-criteria time 30 tries 3 
-radius-server deadtime 15 
+radius-server attribute 6 on-for-login-auth
+radius-server attribute 6 support-multiple
+radius-server attribute 8 include-in-access-req
+radius-server attribute 25 access-request include
+radius-server attribute 31 mac format ietf
+radius-server attribute 31 send nas-port-detail mac-only
+radius-server dead-criteria time 30 tries 3
+radius-server deadtime 15
 !
 !
-mac address-table notification change 
-mac address-table notification mac-move 
-device-sensor accounting 
-device-sensor notify all-changes 
+mac address-table notification change
+mac address-table notification mac-move
+device-sensor accounting
+device-sensor notify all-changes
 !
 !
-lldp run 
-dot1x system-auth-control 
-dot1x critical eapol 
-! 
+lldp run
+dot1x system-auth-control
+dot1x critical eapol
 !
-ip forward-protocol nd 
-ip http server 
-ip http authentication local 
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
 ip http secure-server
 !
 !
@@ -140,15 +140,15 @@ instance {{ spanningtree.mst_instance1 }}
 {% endfor %}
 !
 !
-! 
+!
 router ospf {{ ospf.ProcessId }}
 {% for id, vlan in rtvlans.items() %}
   {% if vlan.lo0 %}
-   router-id {{ vlan.lo0 }} 
+   router-id {{ vlan.lo0 }}
    network {{ vlan.lo0 }} 0.0.0.0 area {{ vlan.area }}
   {% else %}
    network {{ vlan.network }} {{ vlan.wild_mask }} area {{ vlan.area }}
-  {% endif %} 
+  {% endif %}
 {% endfor %}
 !
 !
@@ -172,22 +172,22 @@ interface range {{ iface.ChassisID }}/{{ iface.SlotID }}/{{ iface.StartPort }}-{
 {% if iface.access %}
  switchport mode access
  switchport access vlan {{ iface.vlan }}
- authentication event fail action next-method 
- authentication event server dead action authorize vlan {{ iface.vlan }} 
- authentication event server alive action reinitialize 
- authentication host-mode multi-auth 
- authentication open 
- authentication order dot1x mab 
- authentication priority dot1x mab 
- authentication port-control auto 
- authentication timer reauthenticate server 
- authentication violation restrict 
- mab 
- snmp trap mac-notification change added 
- dot1x pae authenticator 
- dot1x timeout tx-period 60 
- spanning-tree portfast 
- spanning-tree bpduguard enable 
+ authentication event fail action next-method
+ authentication event server dead action authorize vlan {{ iface.vlan }}
+ authentication event server alive action reinitialize
+ authentication host-mode multi-auth
+ authentication open
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer reauthenticate server
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout tx-period 60
+ spanning-tree portfast
+ spanning-tree bpduguard enable
   {% if iface.voip %}
    switchport voice vlan 30
   {% endif %}
